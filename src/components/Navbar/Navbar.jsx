@@ -54,9 +54,9 @@ const Navbar = () => {
   return (
     <div className="w-full z-[100] bg-transparent absolute">
       <div className="max-w-screen-xl py-4 mx-auto flex items-center justify-between">
-        <div>
-          <div className="dropdown">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden">
+      
+          <div className="dropdown px-4">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -74,7 +74,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu font-semibold space-y-3 pl-4 dropdown-content my-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu font-semibold space-y-3 px-4 dropdown-content my-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
@@ -84,7 +84,7 @@ const Navbar = () => {
               alt="logo"
             />
           </div>
-        </div>
+       
         <div className="flex items-center pr-4 lg:pr-0">
           <div className=" hidden lg:flex">
             <ul className="flex  font-semibold">{navLinks}</ul>
