@@ -1,14 +1,14 @@
 import { NavLink } from "react-router-dom";
-
+import logo from "../../assets/images/logo.png";
 const Navbar = () => {
   const navLinks = (
     <>
-      <li className=" hover:text-green-600">
+      <li className="hover:text-green-600">
         <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 px-4 py-2  text-white rounded"
+              ? "bg-green-500 px-4  py-2  text-white rounded"
               : "px-4 py-2"
           }
         >
@@ -19,9 +19,7 @@ const Navbar = () => {
         <NavLink
           to="/surveys"
           className={({ isActive }) =>
-            isActive
-              ? "bg-green-500 px-4 py-2  text-white rounded"
-              : "px-4 py-2"
+            isActive ? "bg-green-500 px-4 py-2 text-white rounded" : "px-4 py-2"
           }
         >
           Surveys
@@ -54,9 +52,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div>
-      <div className="navbar bg-base-100">
-        <div className="navbar-start">
+    <div className="w-full bg-transparent absolute">
+      <div className="max-w-screen-xl py-4 mx-auto flex items-center justify-between">
+        <div>
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
               <svg
@@ -76,18 +74,24 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="font-semibold space-y-3 pl-4 dropdown-content my-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              className="menu font-semibold space-y-3 pl-4 dropdown-content my-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
             >
               {navLinks}
             </ul>
+            <img
+              className="hidden w-36 rounded px-4 py-2 bg-green-500 lg:block"
+              src={logo}
+              alt="logo"
+            />
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
         </div>
-        <div className="navbar-center hidden lg:flex">
-          <ul className="flex  font-semibold">{navLinks}</ul>
-        </div>
-        <div className="navbar-end">
-          <a className="btn">Button</a>
+        <div className="flex items-center pr-4 lg:pr-0">
+          <div className=" hidden lg:flex">
+            <ul className="flex  font-semibold">{navLinks}</ul>
+          </div>
+          <div className="border-l-2 pl-6">
+            <a className="btn">Button</a>
+          </div>
         </div>
       </div>
     </div>
