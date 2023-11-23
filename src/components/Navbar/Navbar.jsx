@@ -52,7 +52,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="w-full bg-transparent absolute">
+    <div className="w-full z-[100] bg-transparent absolute">
       <div className="max-w-screen-xl py-4 mx-auto flex items-center justify-between">
         <div>
           <div className="dropdown">
@@ -79,7 +79,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
             <img
-              className="hidden w-36 rounded px-4 py-2 bg-green-500 lg:block"
+              className="hidden w-36 rounded px-4 py-2 bg-green-600 lg:block shadow-xl"
               src={logo}
               alt="logo"
             />
