@@ -2,11 +2,11 @@ import Lottie from "lottie-react";
 import surveyAnime from "../../assets/animations/surveyPage.json";
 const SurveyBanner = () => {
   return (
-    <div className="max-w-screen-xl mx-auto pt-36 px-4 lg:px-0">
-      <div className="w-full flex items-center justify-center  md:items-start">
+    <div className="max-w-screen-xl mx-auto h-screen flex items-center justify-center px-4 lg:px-0">
+      <div className="w-full flex flex-col-reverse items-center justify-center  md:flex-row">
         {/* text content */}
-        <div className="w-full lg:w-1/3 text-black space-y-4">
-          <h1 className="text-2xl md:text-4xl font-bold leading-tight">
+        <div className="w-full lg:w-1/3 text-black space-y-4 text-center md:text-start">
+          <h1 className="text-2xl md:text-5xl md:leading-tight font-bold leading-tight">
           Our ongoing live online surveys
           </h1>
           <h3 className="text-sm md:text-xl  animate-pulse">
@@ -16,7 +16,7 @@ const SurveyBanner = () => {
         {/* animation */}
         <div>
           <Lottie
-            className="w-48 md:w-72 lg:w-[400px]"
+            className="w-72 lg:w-[400px]"
             animationData={surveyAnime}
             loop={true}
           />
