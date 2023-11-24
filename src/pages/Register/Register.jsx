@@ -1,14 +1,26 @@
+import { Link } from "react-router-dom";
+import SocialLogin from "../../shared/SocialLogin/SocialLogin";
+import RegisterGif from "../../assets/images/registerGif.png"
+import logo from "../../assets/images/logo.png"
 const Register = () => {
+    const handleRegister = ()=>{
+
+    }
     return(
-        <div className="hero my-20">
+        <div>
+             <Link className="hidden lg:block" to="/">
+       <img className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-green-600 hover:cursor-pointer" src={logo} alt="" />
+       </Link>
+        
+        <div className="hero my-20 lg:my-10">
         <div>
           <h1 className="text-4xl font-bold text-center md:text-5xl md:mt-6 lg:my-8">
-            Register <span className="text-[#4b1818]">now!</span>
+            Register <span className="text-green-600">now!</span>
           </h1>
           <div className="hero-content lg:gap-10 items-center flex-col lg:flex-row">
             <div className="text-center lg:text-left">
               <div className="hidden w-96 lg:block">
-                <Lottie animationData={registerAnimation} loop={true} />
+                <img src={RegisterGif} alt="Register gif" />
               </div>
             </div>
             <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -64,10 +76,11 @@ const Register = () => {
                 <div className="form-control mt-6">
                   <button
                     type="submit"
-                    className="btn bg-[#4b1818] text-white hover:bg-[#350b0b]"
+                    className="btn bg-green-600 text-white hover:text-green-600 hover:bg-white"
                   >
                     Register
                   </button>
+                  
                 </div>
               </form>
               <SocialLogin/>
@@ -81,5 +94,6 @@ const Register = () => {
           </div>
         </div>
       </div>
+        </div>
     )}
 export default Register;

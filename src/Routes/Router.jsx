@@ -4,6 +4,8 @@ import Home from "../pages/Home/Home";
 import Surveys from "../pages/Surveys/Surveys";
 import ProMember from "../pages/ProMember/ProMember";
 import SurveyDetail from "../pages/SurveyDetail/SurveyDetail";
+import Login from "../pages/Login/Login";
+import Register from "../pages/Register/Register";
 
 const Router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const Router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/login",
+    element: <Login/>
+  },
+  {
+    path: "/register",
+    element: <Register/>
+  }
 ]);
 
 export default Router;
