@@ -1,7 +1,10 @@
+import SurveyPageBanner from "../../components/SurveyPageBanner/SurveyPageBanner";
+
 const Surveys = () => {
     return(
         <div>
-             <p> HELLO I Am Surveys </p>
+             
+             <SurveyPageBanner/>
         </div>
     )}
 export default Surveys;

@@ -56,7 +56,7 @@ const Navbar = () => {
       <div className="max-w-screen-xl py-4 mx-auto flex items-center justify-between">
       
           <div className="dropdown px-4">
-            <label tabIndex={0} className="btn btn-ghost lg:hidden text-white">
+            <label tabIndex={0} className="btn btn-ghost lg:hidden text-green-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
