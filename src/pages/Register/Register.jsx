@@ -1,18 +1,44 @@
 import { Link } from "react-router-dom";
 import SocialLogin from "../../shared/SocialLogin/SocialLogin";
-import RegisterGif from "../../assets/images/registerGif.png"
-import logo from "../../assets/images/logo.png"
+import RegisterGif from "../../assets/images/registerGif.png";
+import logo from "../../assets/images/logo.png";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 const Register = () => {
-    const handleRegister = ()=>{
-
+  const {createUser, updateUserProfile} = useAuth()
+  const handleRegister = async e => {
+    e.preventDefault()
+    const form = e.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const user = {
+      name, email, role:"user", photo
     }
-    return(
-        <div>
-             <Link className="hidden lg:block" to="/">
-       <img className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-green-600 hover:cursor-pointer" src={logo} alt="" />
-       </Link>
-        
-        <div className="hero my-20 lg:my-10">
+    try{
+      const res = await createUser(email, password)
+      if(res?.user?.email){
+        await updateUserProfile(name, photo)
+
+      }
+    }
+    catch(err){
+      toast.error(err.message)
+    }
+
+  };
+  return (
+    <div>
+      <Link className="hidden lg:block" to="/">
+        <img
+          className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-green-600 hover:cursor-pointer"
+          src={logo}
+          alt=""
+        />
+      </Link>
+
+      <div className="hero my-20 lg:my-10">
         <div>
           <h1 className="text-4xl font-bold text-center md:text-5xl md:mt-6 lg:my-8">
             Register <span className="text-green-600">now!</span>
@@ -80,10 +106,9 @@ const Register = () => {
                   >
                     Register
                   </button>
-                  
                 </div>
               </form>
-              <SocialLogin/>
+              <SocialLogin />
               <div className="flex items-center justify-between px-4 pb-2">
                 <p>Already have an account?</p>
                 <Link to="/login" className="btn btn-link">
@@ -94,6 +119,7 @@ const Register = () => {
           </div>
         </div>
       </div>
-        </div>
-    )}
+    </div>
+  );
+};
 export default Register;

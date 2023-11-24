@@ -1,7 +1,6 @@
 import SurveyCard from "../../components/SurveyCard/SurveyCard";
 import SurveyBanner from "../../components/SurveyBanner/SurveyBanner";
 import useSurveys from "../../hooks/useSurveys";
-import SectionTitle from "../../shared/SectionTitle/SectionTitle";
 import SurveySearch from "../../components/SurveySearch/SurveySearch";
 import { useState } from "react";
 import SurveyCategory from "../../components/SurveyCategory/SurveyCategory";
@@ -23,7 +22,7 @@ const Surveys = () => {
   return (
     <div>
       <SurveyBanner />
-      <SectionTitle heading="Surveys" subHeading="currently running surveys" />
+     
       {/* survey search, sort and filter functionalities */}
 
       <div className="max-w-screen-xl mx-auto flex justify-center items-center mt-6 px-4 lg:px-0">

@@ -11,7 +11,8 @@ import {
   signOut,
   updateProfile,
 } from 'firebase/auth'
-import { app } from '../firebase/firebase.config'
+import app from '../firebase/firebase.config'
+
 // import { clearCookie } from '../api/auth'
 
 export const AuthContext = createContext(null)
