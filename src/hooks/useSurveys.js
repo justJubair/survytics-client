@@ -3,11 +3,11 @@ import axiosPublic from "../api/axiosPublic"
 
 
 
-const useSurveys = ()=>{
+const useSurveys = (searchText, asc)=>{
     const {data:surveys=[],refetch, isLoading} = useQuery({
-        queryKey: ["surveys"],
+        queryKey: [searchText, asc, "surveys"],
         queryFn: async()=>{
-            const res = await axiosPublic("/surveys")
+            const res = await axiosPublic(`/surveys?sort=${asc ? "asc" : "desc"}&search=${searchText}`)
             return res.data
         }
     })
