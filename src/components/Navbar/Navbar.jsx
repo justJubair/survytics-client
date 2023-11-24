@@ -90,7 +90,7 @@ const Navbar = () => {
             <ul className="flex  font-semibold">{navLinks}</ul>
           </div>
           <div className="border-l-2 pl-6">
-            <a className="btn">Button</a>
+            <a className="btn bg-green-600 text-white hover:text-green-600 hover:bg-white">Login</a>
           </div>
         </div>
       </div>
