@@ -42,7 +42,7 @@ const SurveyComments = ({ surveyId, surveyTitle }) => {
       <div className="mt-8">
         <form onSubmit={handleComment}>
           <textarea
-            className="w-1/2 textarea textarea-success"
+            className="w-full md:w-1/2 textarea textarea-success"
             name="comment"
             placeholder="Write your comment..."
           ></textarea>

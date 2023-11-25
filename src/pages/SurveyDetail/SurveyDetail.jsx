@@ -36,7 +36,7 @@ const SurveyDetail = () => {
   } = survey;
 
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl mx-auto px-4">
       {/* banner */}
       <div className="h-[400px] pt-28 flex items-center justify-center px-4 lg:px-0">
         <div className=" flex items-center justify-center">
