@@ -1,32 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../shared/SocialLogin/SocialLogin";
 import RegisterGif from "../../assets/images/registerGif.png";
 import logo from "../../assets/images/logo.png";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import saveUser from "../../api/saveUser";
 const Register = () => {
-  const {createUser, updateUserProfile} = useAuth()
-  const handleRegister = async e => {
-    e.preventDefault()
+  const { createUser, updateUserProfile } = useAuth();
+  const navigate = useNavigate()
+  const handleRegister = async (e) => {
+    e.preventDefault();
     const form = e.target;
     const name = form.name.value;
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
     const user = {
-      name, email, role:"user", photo
-    }
-    try{
-      const res = await createUser(email, password)
-      if(res?.user?.email){
-        await updateUserProfile(name, photo)
-
+      name,
+      email,
+      role: "user",
+      photo,
+    };
+    try {
+      const res = await createUser(email, password);
+      if (res?.user?.email) {
+        await updateUserProfile(name, photo);
+        const dbResponse = await saveUser(user);
+        if (dbResponse.insertedId) {
+          toast.success(`${name} your account has been created`);
+          navigate("/")
+        }
       }
+    } catch (err) {
+      toast.error(err.message);
     }
-    catch(err){
-      toast.error(err.message)
-    }
-
   };
   return (
     <div>
