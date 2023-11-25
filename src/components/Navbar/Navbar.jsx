@@ -1,6 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
+  const {user, logOut} = useAuth()
+  const handleLogout = async()=>{
+    await logOut()
+  } 
   const navLinks = (
     <>
       <li className="hover:text-green-600">
@@ -89,9 +94,23 @@ const Navbar = () => {
           <div className=" hidden lg:flex">
             <ul className="flex  font-semibold">{navLinks}</ul>
           </div>
-          <div className="border-l-2 pl-6">
+          {
+            user ? <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+              </div>
+            </label>
+            <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+             
+              <li><a>{user?.displayName}</a></li>
+              <li onClick={handleLogout} ><a>Logout</a></li>
+            </ul>
+          </div> : <div className="border-l-2 pl-6">
             <Link to="/login" className="btn bg-green-600 text-white border-none hover:text-green-600 hover:bg-white">Login</Link>
           </div>
+          }
+          
         </div>
       </div>
     </div>
