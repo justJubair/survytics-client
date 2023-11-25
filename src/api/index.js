@@ -35,9 +35,9 @@ export const patchVoteCount = async(surveyId, operation)=>{
 }
 
 // Post; user information when they vote
-export const saveUserVotingDetails = async(votingDetails, voted)=>{
+export const saveUserVotingDetails = async(votingDetails)=>{
   try{
-    const res = await axiosPublic.post("/votes", {votingDetails, voted})
+    const res = await axiosPublic.post("/votes", {votingDetails})
     return res.data
   }
   catch(err){
