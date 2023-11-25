@@ -41,7 +41,7 @@ const SurveyDetail = () => {
       <div className="h-[400px] pt-28 flex items-center justify-center px-4 lg:px-0">
         <div className=" flex items-center justify-center">
           {/* text */}
-          <div className="w-full md:w-1/3">
+          <div className="w-full md:w-1/2">
             <h2 className="text-2xl  md:text-4xl font-semibold text-green-600">
               {title}
             </h2>
@@ -95,7 +95,7 @@ const SurveyDetail = () => {
         </div>
       </div>
       {/* comment section */}
-      <SurveyComments/>
+      <SurveyComments surveyId={_id} surveyTitle={title}/>
     </div>
   );
 };

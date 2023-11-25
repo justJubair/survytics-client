@@ -95,7 +95,7 @@ const Navbar = () => {
             <ul className="flex  font-semibold">{navLinks}</ul>
           </div>
           {
-            user ? <div className="dropdown dropdown-end">
+            user ? <div className="border-l-2 pl-3 dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
