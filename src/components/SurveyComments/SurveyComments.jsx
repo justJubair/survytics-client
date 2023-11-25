@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { IoMdSend } from "react-icons/io";
 import useAuth from "../../hooks/useAuth";
-import postComment from "../../api/postComment";
+
 import toast from "react-hot-toast";
 import useComments from "../../hooks/useComments";
 import Comment from "./Comment";
+import { postComment } from "../../api";
 const SurveyComments = ({ surveyId, surveyTitle }) => {
   const [comments, refetch] = useComments(surveyId);
 

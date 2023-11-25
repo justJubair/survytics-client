@@ -9,6 +9,10 @@ import {
   FaThumbsUp,
 } from "react-icons/fa6";
 import SurveyComments from "../../components/SurveyComments/SurveyComments";
+
+import toast from "react-hot-toast";
+import { patchVoteCount } from "../../api";
+
 const SurveyDetail = () => {
   const { id } = useParams();
   const {
@@ -34,6 +38,19 @@ const SurveyDetail = () => {
     VoteYes,
     VoteNo,
   } = survey;
+
+  const handleVoteYes = async()=>{
+    const res = await patchVoteCount(_id, "yes")
+    if(res.modifiedCount>0){
+      toast.success("Your vote has been added")
+    }
+  }
+  const handleVoteNo = async()=>{
+    const res = await patchVoteCount(_id, "no")
+    if(res.modifiedCount>0){
+      toast.success("Your vote has been added")
+    }
+  }
 
   return (
     <div className="max-w-screen-xl mx-auto px-4">
@@ -71,10 +88,10 @@ const SurveyDetail = () => {
         </p>
         {/* yes and no buttons */}
         <div className="space-x-4">
-          <button className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
+          <button onClick={handleVoteYes} className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
             YES
           </button>
-          <button className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
+          <button onClick={handleVoteNo} className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
             NO
           </button>
         </div>

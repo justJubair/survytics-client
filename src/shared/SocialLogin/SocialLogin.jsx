@@ -1,8 +1,9 @@
 import { AiFillGithub, AiOutlineGoogle } from "react-icons/ai";
 import useAuth from "../../hooks/useAuth";
-import saveUser from "../../api/saveUser";
+
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { saveUser } from "../../api";
 const SocialLogin = () => {
   const navigate = useNavigate()
     const { signInWithGoogle } = useAuth();

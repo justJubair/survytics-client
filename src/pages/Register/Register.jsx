@@ -4,7 +4,8 @@ import RegisterGif from "../../assets/images/registerGif.png";
 import logo from "../../assets/images/logo.png";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
-import saveUser from "../../api/saveUser";
+import { saveUser } from "../../api";
+
 const Register = () => {
   const { createUser, updateUserProfile } = useAuth();
   const navigate = useNavigate()
