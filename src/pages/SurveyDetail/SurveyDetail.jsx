@@ -11,9 +11,13 @@ import {
 import SurveyComments from "../../components/SurveyComments/SurveyComments";
 
 import toast from "react-hot-toast";
-import { patchVoteCount } from "../../api";
+import { patchVoteCount, saveUserVotingDetails } from "../../api";
+import useAuth from "../../hooks/useAuth";
+import moment from "moment/moment";
+import Loader from "../../shared/Loader/Loader";
 
 const SurveyDetail = () => {
+  const {user} = useAuth()
   const { id } = useParams();
   const {
     data: survey = [],
@@ -38,10 +42,13 @@ const SurveyDetail = () => {
     VoteYes,
     VoteNo,
   } = survey;
+ 
+  const votingDetails = {surveyId: _id, surveyTitle: title, userName:user?.displayName, userEmail:user?.email, time: moment().format("MMM Do YYYY, h:mm a")}
 
   const handleVoteYes = async()=>{
     const res = await patchVoteCount(_id, "yes")
     if(res.modifiedCount>0){
+      const dbResponse = await saveUserVotingDetails()
       toast.success("Your vote has been added")
     }
   }
@@ -55,6 +62,7 @@ const SurveyDetail = () => {
   return (
     <div className="max-w-screen-xl mx-auto px-4">
       {/* banner */}
+      <Loader/>
       <div className="h-[400px] pt-28 flex items-center justify-center px-4 lg:px-0">
         <div className=" flex items-center justify-center">
           {/* text */}

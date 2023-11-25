@@ -33,17 +33,17 @@ export const patchVoteCount = async(surveyId, operation)=>{
     console.log(err)
   }
 }
-// Patch; increase No vote;
-// export const patchVoteNo = async(surveyId)=>{
-//   try{
-//     const res = await axiosSecure.patch(`/survey/${surveyId}`, {decrease: 1})
-//     return res.data
-//   }
-//   catch(err){
-//     console.log(err)
-//   }
-// }
 
+// Post; user information when they vote
+export const saveUserVotingDetails = async(votingDetails, voted)=>{
+  try{
+    const res = await axiosPublic.post("/votes", {votingDetails, voted})
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
 
 
 
