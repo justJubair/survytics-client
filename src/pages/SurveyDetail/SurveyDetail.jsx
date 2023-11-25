@@ -9,15 +9,20 @@ import {
   FaThumbsUp,
 } from "react-icons/fa6";
 import SurveyComments from "../../components/SurveyComments/SurveyComments";
-
 import toast from "react-hot-toast";
 import { patchVoteCount, saveUserVotingDetails } from "../../api";
 import useAuth from "../../hooks/useAuth";
 import Loader from "../../shared/Loader/Loader";
+import SurveyChart from "../../components/SurveyChart/SurveyChart";
+import { useState } from "react";
+import useVoted from "../../hooks/useVoted";
 
 const SurveyDetail = () => {
-  const {user, loading} = useAuth()
+  const { user, loading } = useAuth();
+  // const [isVoted, setIsVoted] = useState(false)
   const { id } = useParams();
+ 
+ 
   const {
     data: survey = [],
     refetch,
@@ -29,6 +34,7 @@ const SurveyDetail = () => {
       return res.data;
     },
   });
+  const [isVoted] = useVoted(survey?._id, user?.email)
   const {
     _id,
     title,
@@ -41,38 +47,48 @@ const SurveyDetail = () => {
     VoteYes,
     VoteNo,
   } = survey;
- 
-  
 
-  const handleVoteYes = async()=>{
-    const res = await patchVoteCount(_id, "yes")
-    if(res.modifiedCount>0){
-      const votingDetails = {surveyId: _id, surveyTitle: title, userName:user?.displayName, userEmail:user?.email, voted: "yes"}
-      const dbResponse = await saveUserVotingDetails(votingDetails)
-      if(dbResponse.insertedId){
-
-        toast.success("Your vote has been added")
+  const handleVoteYes = async () => {
+    const res = await patchVoteCount(_id, "yes");
+    if (res.modifiedCount > 0) {
+      const votingDetails = {
+        surveyId: _id,
+        surveyTitle: title,
+        userName: user?.displayName,
+        userEmail: user?.email,
+        voted: "yes",
+      };
+      const dbResponse = await saveUserVotingDetails(votingDetails);
+      if (dbResponse.insertedId) {
+        toast.success("Your vote has been added");
+        refetch()
       }
     }
-  }
-  const handleVoteNo = async()=>{
-    const res = await patchVoteCount(_id, "no")
-    if(res.modifiedCount>0){
-      const votingDetails = {surveyId: _id, surveyTitle: title, userName:user?.displayName, userEmail:user?.email, voted: "no"}
-      const dbResponse = await saveUserVotingDetails(votingDetails)
-      if(dbResponse.insertedId){
-
-        toast.success("Your vote has been added")
+  };
+  const handleVoteNo = async () => {
+    const res = await patchVoteCount(_id, "no");
+    if (res.modifiedCount > 0) {
+      const votingDetails = {
+        surveyId: _id,
+        surveyTitle: title,
+        userName: user?.displayName,
+        userEmail: user?.email,
+        voted: "no",
+      };
+      const dbResponse = await saveUserVotingDetails(votingDetails);
+      if (dbResponse.insertedId) {
+        toast.success("Your vote has been added");
+        refetch()
       }
     }
-  }
-  if(loading || isLoading){
-    return  <Loader/>
+  };
+  if (loading || isLoading) {
+    return <Loader />;
   }
   return (
     <div className="max-w-screen-xl mx-auto px-4">
       {/* banner */}
-     
+
       <div className="h-[400px] pt-28 flex items-center justify-center px-4 lg:px-0">
         <div className=" flex items-center justify-center">
           {/* text */}
@@ -98,21 +114,34 @@ const SurveyDetail = () => {
         <p>
           <span className="font-semibold">Category:</span> {category}
         </p>
-        <p className="font-semibold">
-          <span className="font-semibold text-xl text-green-600">
-            Question:
-          </span>{" "}
-          {question}
-        </p>
-        {/* yes and no buttons */}
-        <div className="space-x-4">
-          <button onClick={handleVoteYes} className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
-            YES
-          </button>
-          <button onClick={handleVoteNo} className="btn bg-green-600 text-white hover:bg-white hover:text-green-600">
-            NO
-          </button>
-        </div>
+      
+       {
+          isVoted ?   <SurveyChart voteYes={VoteYes} voteNo={VoteNo} /> :  <div>
+          <p className="font-semibold mb-4">
+             <span className="font-semibold text-xl text-green-600">
+               Question:
+             </span>{" "}
+             {question}
+           </p>
+           {/* yes and no buttons */}
+           <div className="space-x-4">
+             <button
+               onClick={handleVoteYes}
+               className="btn bg-green-600 text-white hover:bg-white hover:text-green-600"
+             >
+               YES
+             </button>
+             <button
+               onClick={handleVoteNo}
+               className="btn bg-green-600 text-white hover:bg-white hover:text-green-600"
+             >
+               NO
+             </button>
+           </div>
+          </div>
+        }
+      
+      
         {/* like and dislike button */}
         <div className="flex justify-end items-center gap-4">
           <p className="flex items-center text-lg gap-2">
@@ -129,8 +158,9 @@ const SurveyDetail = () => {
           </p>
         </div>
       </div>
+    
       {/* comment section */}
-      <SurveyComments surveyId={_id} surveyTitle={title}/>
+      <SurveyComments surveyId={_id} surveyTitle={title} />
     </div>
   );
 };
