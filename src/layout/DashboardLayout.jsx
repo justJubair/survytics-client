@@ -5,13 +5,12 @@ const Dashboard = () => {
     return(
         <div className="flex">
             {/* sidebar */}
-            <div>
+            <div className="w-0 lg:w-64">
                 <Sidebar/>
             </div>
             {/* content */}
-            <div className="flex-1 bg-red-600">
+            <div className="flex-1">
                 <Outlet/>
-                <h1>Hello</h1>
             </div>
         </div>
     )}
