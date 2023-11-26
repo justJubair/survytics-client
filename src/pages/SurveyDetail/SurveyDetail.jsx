@@ -10,18 +10,19 @@ import {
 } from "react-icons/fa6";
 import SurveyComments from "../../components/SurveyComments/SurveyComments";
 import toast from "react-hot-toast";
-import { patchVoteCount, saveUserVotingDetails } from "../../api";
+import { patchLikeAndDislike, patchVoteCount, saveUserVotingDetails } from "../../api";
 import useAuth from "../../hooks/useAuth";
 import Loader from "../../shared/Loader/Loader";
 import SurveyChart from "../../components/SurveyChart/SurveyChart";
-import { useState } from "react";
 import useVoted from "../../hooks/useVoted";
+import { useState } from "react";
 
 const SurveyDetail = () => {
   const { user, loading } = useAuth();
-  // const [isVoted, setIsVoted] = useState(false)
   const { id } = useParams();
- 
+  const [buttonDisable, setButtonDisable] = useState(false)
+  const [liked, setLiked] = useState(false)
+  const [disliked, setDisliked] = useState(false)
  
   const {
     data: survey = [],
@@ -82,6 +83,23 @@ const SurveyDetail = () => {
       }
     }
   };
+
+  const handleLike = async()=>{
+    const res = await patchLikeAndDislike(_id, "like")
+    refetch()
+    if(res.modifiedCount>0){
+      setButtonDisable(true)
+      setLiked(true)
+    }
+  }
+  const handleDislike = async()=>{
+    const res = await patchLikeAndDislike(_id, "dislike")
+    refetch()
+    if(res.modifiedCount>0){
+      setButtonDisable(true)
+      setDisliked(true)
+    }
+  }
   if (loading || isLoading) {
     return <Loader />;
   }
@@ -146,14 +164,15 @@ const SurveyDetail = () => {
         <div className="flex justify-end items-center gap-4">
           <p className="flex items-center text-lg gap-2">
             {like}{" "}
-            <button>
-              <FaRegThumbsUp size={20} />
+            <button disabled={buttonDisable} onClick={handleLike}>
+              {liked ? <FaThumbsUp size={20}/> :   <FaRegThumbsUp size={20} />}
+            
             </button>
           </p>
           <p className="flex items-center text-lg gap-2">
             {dislike}{" "}
-            <button>
-              <FaRegThumbsDown size={20} />
+            <button disabled={buttonDisable} onClick={handleDislike}>
+              {disliked ? <FaThumbsDown size={20}/> :   <FaRegThumbsDown size={20} />}
             </button>
           </p>
         </div>

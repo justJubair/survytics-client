@@ -45,5 +45,15 @@ export const saveUserVotingDetails = async(votingDetails)=>{
   }
 }
 
+// Patch; like and dislike count
+export const patchLikeAndDislike = async(surveyId, operation)=>{
+  try{
+    const res = await axiosSecure.patch(`/surveyLikesAndDislikes/${surveyId}`, {increase: 1, operation})
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
 
 
