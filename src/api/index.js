@@ -56,5 +56,16 @@ export const patchLikeAndDislike = async(surveyId, operation)=>{
   }
 }
 
+// Post; payment details
+export const savePaymentDetails = async(payment)=>{
+  try{
+    const res = await axiosSecure.put("/payments", payment)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 
 
