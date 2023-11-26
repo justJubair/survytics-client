@@ -4,7 +4,7 @@ const Footer = () => {
     
       <footer className="footer p-10 bg-base-200 text-base-content mt-28">
         <aside>
-          <img className="w-28 px-4 py-2 bg-green-600" src={logo} alt="logo" />
+          <img className="w-28 px-4 py-2 bg-gradient-to-r from-cyan-600 to-[#24962a]" src={logo} alt="logo" />
           <p>
             Survytics online surveys inc.
             <br />

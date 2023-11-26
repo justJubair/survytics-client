@@ -1,37 +1,39 @@
 import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../../shared/SocialLogin/SocialLogin";
-import loginGif from "../../assets/images/loginGif.png"
-import logo from "../../assets/images/logo.png"
+import loginGif from "../../assets/images/loginGif.png";
+import logo from "../../assets/images/logo.png";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const navigate = useNavigate()
-  const {signIn} = useAuth()
-    const handleLogin = async e=>{
-      e.preventDefault()
-      const form = e.target;
-      const email = form.email.value;
-      const password = form.password.value;
-      try{
-        const res = await signIn(email, password)
-        if(res.user){
-          toast.success("Logged in successful")
-          navigate("/")
-        }
-      } 
-      catch(err){
-        toast.error(err.message)
+  const navigate = useNavigate();
+  const { signIn } = useAuth();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    try {
+      const res = await signIn(email, password);
+      if (res.user) {
+        toast.success("Logged in successful");
+        navigate("/");
       }
+    } catch (err) {
+      toast.error(err.message);
     }
-    return(
-      <div>
-        
-       <Link className="hidden lg:block" to="/">
-       <img className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-green-600 hover:cursor-pointer" src={logo} alt="" />
-       </Link>
-        
-          <div className="hero h-screen my-20 lg:my-0">         
+  };
+  return (
+    <div>
+      <Link className="hidden lg:block" to="/">
+        <img
+          className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-gradient-to-r from-cyan-600 to-[#24962a] hover:cursor-pointer"
+          src={logo}
+          alt=""
+        />
+      </Link>
+
+      <div className="hero h-screen my-20 lg:my-0">
         <div>
           <h1 className="text-4xl font-bold text-center md:text-5xl md:mt-6 lg:my-8">
             Login <span className="text-green-600">now!</span>
@@ -76,13 +78,13 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <button
                     type="submit"
-                    className="btn bg-green-600 text-white hover:text-green-600 hover:bg-white"
+                    className="btn bg-gradient-to-r duration-300 from-cyan-600 to-[#24962a] text-white hover:scale-105"
                   >
                     Login
                   </button>
                 </div>
               </form>
-              <SocialLogin/>
+              <SocialLogin />
               <div className="flex items-center justify-between px-4 pb-2">
                 <p className="font-medium">New to Survytics?</p>
                 <Link to="/register" className="btn btn-link">
@@ -93,6 +95,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-      </div>
-    )}
+    </div>
+  );
+};
 export default Login;

@@ -40,7 +40,7 @@ const Register = () => {
     <div>
       <Link className="hidden lg:block" to="/">
         <img
-          className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-green-600 hover:cursor-pointer"
+          className="absolute top-4 left-4  w-32 shadow-xl rounded py-2 px-4  bg-gradient-to-r from-cyan-600 to-[#24962a] hover:cursor-pointer"
           src={logo}
           alt=""
         />
@@ -110,7 +110,7 @@ const Register = () => {
                 <div className="form-control mt-6">
                   <button
                     type="submit"
-                    className="btn bg-green-600 text-white hover:text-green-600 hover:bg-white"
+                    className="btn duration-300 bg-gradient-to-r from-cyan-600 to-[#24962a] text-white hover:scale-105"
                   >
                     Register
                   </button>

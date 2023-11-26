@@ -13,7 +13,7 @@ const Navbar = () => {
           to="/"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 px-4  py-2  text-white rounded"
+              ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4  py-2  text-white rounded"
               : "px-4 py-2"
           }
         >
@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink
           to="/surveys"
           className={({ isActive }) =>
-            isActive ? "bg-green-500 px-4 py-2 text-white rounded" : "px-4 py-2"
+            isActive ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2 text-white rounded" : "px-4 py-2"
           }
         >
           Surveys
@@ -35,7 +35,7 @@ const Navbar = () => {
           to="/proMember"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 px-4 py-2  text-white rounded"
+              ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2  text-white rounded"
               : "px-4 py-2"
           }
         >
@@ -47,7 +47,7 @@ const Navbar = () => {
           to="/aboutUs"
           className={({ isActive }) =>
             isActive
-              ? "bg-green-500 px-4 py-2  text-white rounded"
+              ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2  text-white rounded"
               : "px-4 py-2"
           }
         >
@@ -84,7 +84,7 @@ const Navbar = () => {
               {navLinks}
             </ul>
             <img
-              className="hidden w-36 rounded px-4 py-2 bg-green-600 lg:block shadow-xl"
+              className="hidden w-36 rounded px-4 py-2 bg-gradient-to-r from-cyan-600 to-[#24962a] lg:block shadow-xl"
               src={logo}
               alt="logo"
             />
@@ -107,7 +107,7 @@ const Navbar = () => {
               <li onClick={handleLogout} ><a>Logout</a></li>
             </ul>
           </div> : <div className="border-l-2 pl-6">
-            <Link to="/login" className="btn bg-green-600 text-white border-none hover:text-green-600 hover:bg-white">Login</Link>
+            <Link to="/login" className="btn bg-gradient-to-r from-cyan-600 to-[#24962a] text-white border-none hover:text-green-600 hover:bg-white">Login</Link>
           </div>
           }
           
