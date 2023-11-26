@@ -1,7 +1,11 @@
+import ProMemberBanner from "../../components/ProMemberBanner/ProMemberBanner";
+
+
 const ProMember = () => {
     return(
         <div>
-             <p> HELLO I Am ProMember </p>
+             {/* banner */}
+             <ProMemberBanner/>
         </div>
     )}
 export default ProMember;
