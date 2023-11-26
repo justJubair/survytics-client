@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import app from '../firebase/firebase.config'
+import axiosSecure from '../api/axiosSecure'
 
 // import { clearCookie } from '../api/auth'
 
@@ -55,13 +56,23 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
-      
+      const userEmail = currentUser?.email || user?.email
+      const loggedUser = {email: userEmail}
+      if(currentUser){
+        axiosSecure.post("/jwt", loggedUser)
+        .then(res=>{
+          console.log(res.data)
+        })
+        .catch(error=>{
+          console.log(error)
+        })
+      }
       setLoading(false)
     })
     return () => {
       return unsubscribe()
     }
-  }, [])
+  }, [user?.email])
 
   const authInfo = {
     user,

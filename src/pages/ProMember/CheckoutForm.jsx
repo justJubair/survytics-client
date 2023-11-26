@@ -99,7 +99,7 @@ const CheckoutForm = () => {
           <button
             className="btn w-full  bg-gradient-to-r from-cyan-600 to-[#24962a] hover:scale-95"
             type="submit"
-            disabled={!stripe}
+            disabled={!stripe || !clientSecret}
           >
             Pay
           </button>
