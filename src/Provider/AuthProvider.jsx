@@ -60,11 +60,15 @@ const AuthProvider = ({ children }) => {
       const loggedUser = {email: userEmail}
       if(currentUser){
         axiosSecure.post("/jwt", loggedUser)
-        .then(res=>{
-          console.log(res.data)
-        })
+        .then()
         .catch(error=>{
           console.log(error)
+        })
+      } else{
+        axiosSecure.post("/logout", loggedUser)
+        .then()
+        .catch(err=>{
+          console.log(err)
         })
       }
       setLoading(false)

@@ -44,6 +44,18 @@ const Navbar = () => {
       </li>
       <li className=" hover:text-green-500">
         <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2  text-white rounded"
+              : "px-4 py-2"
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      <li className=" hover:text-green-500">
+        <NavLink
           to="/aboutUs"
           className={({ isActive }) =>
             isActive

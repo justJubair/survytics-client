@@ -28,6 +28,7 @@ const SurveyDetail = () => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
 
+
   const {
     data: survey = [],
     refetch,
@@ -39,7 +40,8 @@ const SurveyDetail = () => {
       return res.data;
     },
   });
-  const [isVoted] = useVoted(survey?._id, user?.email);
+  const [isVoted, isVotedRefetch] = useVoted(survey?._id, user?.email);
+ 
   const {
     _id,
     title,
@@ -66,7 +68,9 @@ const SurveyDetail = () => {
       const dbResponse = await saveUserVotingDetails(votingDetails);
       if (dbResponse.insertedId) {
         toast.success("Your vote has been added");
-        refetch();
+        refetch()
+        isVotedRefetch()
+       
       }
     }
   };
@@ -83,7 +87,9 @@ const SurveyDetail = () => {
       const dbResponse = await saveUserVotingDetails(votingDetails);
       if (dbResponse.insertedId) {
         toast.success("Your vote has been added");
-        refetch();
+       refetch()
+       isVotedRefetch()
+      
       }
     }
   };
@@ -139,7 +145,7 @@ const SurveyDetail = () => {
 
         {isVoted ? (
           <SurveyChart voteYes={VoteYes} voteNo={VoteNo} />
-        ) : (
+        )   : (
           <div>
             <p className="font-semibold mb-4">
               <span className="font-semibold text-xl text-green-600">
