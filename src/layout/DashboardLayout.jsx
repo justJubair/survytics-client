@@ -5,7 +5,7 @@ const Dashboard = () => {
     return(
         <div className="flex">
             {/* sidebar */}
-            <div className="w-[250px]">
+            <div>
                 <Sidebar/>
             </div>
             {/* content */}
