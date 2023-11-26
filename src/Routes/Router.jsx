@@ -6,7 +6,8 @@ import ProMember from "../pages/ProMember/ProMember";
 import SurveyDetail from "../pages/SurveyDetail/SurveyDetail";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import Dashboard from "../layout/Dashboard";
+import Dashboard from "../layout/DashboardLayout";
+import AddSurvey from "../pages/Dashboard/AddSurvey/AddSurvey";
 
 const Router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const Router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard/>
+    element: <Dashboard/>,
+    children: [{
+      path: "/dashboard/addSurvey",
+      element: <AddSurvey/>
+    }]
   },
   {
     path: "/login",
