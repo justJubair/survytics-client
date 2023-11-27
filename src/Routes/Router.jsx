@@ -10,6 +10,7 @@ import Dashboard from "../layout/DashboardLayout";
 import AddSurvey from "../pages/Dashboard/AddSurvey/AddSurvey";
 import ManageSurveys from "../pages/Dashboard/ManageSurveys/ManageSurveys";
 import UpdateSurvey from "../pages/Dashboard/ManageSurveys/UpdateSurvey";
+import TableResponse from "../pages/Dashboard/TableResponse/TableResponse";
 
 const Router = createBrowserRouter([
   {
@@ -43,14 +44,19 @@ const Router = createBrowserRouter([
         element: <AddSurvey />,
       },
       {
-        path: '/dashboard/manageSurveys',
-        element: <ManageSurveys/>
+        path: "/dashboard/manageSurveys",
+        element: <ManageSurveys />,
       },
       {
-        path: '/dashboard/updateSurvey/:id',
-        loader: ({params})=> fetch(`http://localhost:5000/survey/${params.id}`),
-        element: <UpdateSurvey/>
-      }
+        path: "/dashboard/updateSurvey/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/survey/${params.id}`),
+        element: <UpdateSurvey />,
+      },
+      {
+        path: "/dashboard/responseTable",
+        element: <TableResponse />,
+      },
     ],
   },
   {

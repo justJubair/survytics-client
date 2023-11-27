@@ -1,6 +1,8 @@
 import { NavLink } from "react-router-dom";
 import { GrChapterAdd } from "react-icons/gr";
 import { RiListSettingsLine } from "react-icons/ri";
+import { MdOutlineQuestionAnswer } from "react-icons/md";
+import { GoDotFill } from "react-icons/go";
 const SurveyorMenu = () => {
   return (
     <>
@@ -31,9 +33,40 @@ const SurveyorMenu = () => {
             Manage Surveys
           </NavLink>
         </li>
+
+        <li className="w-full flex items-center px-4 py-2 gap-2 text-gray-200 mt-4">
+          <MdOutlineQuestionAnswer/>
+          Survey Responses
+        </li>
+        <li className="w-full hover:text-white">
+          <NavLink
+            to="/dashboard/responseTable"
+            className={({ isActive }) =>
+            `flex items-center px-4 py-2 gap-2  transition-colors duration-300 transform   hover:text-gray-700 ${
+              isActive ? 'bg-gradient-to-r from-cyan-700 to-cyan-600  text-white' : 'text-white'
+            }`
+          }
+          >
+           <GoDotFill/>
+           Table
+          </NavLink>
+        </li>
+        <li className="w-full hover:text-white">
+          <NavLink
+            to="/dashboard/responseChart"
+            className={({ isActive }) =>
+            `flex items-center px-4 py-2 gap-2  transition-colors duration-300 transform   hover:text-gray-700 ${
+              isActive ? 'bg-gradient-to-r from-cyan-700 to-cyan-600  text-white' : 'text-white'
+            }`
+          }
+          >
+           <GoDotFill/>
+           Chart
+          </NavLink>
+        </li>
        
       </ul>
     </>
-  );
+  );                  
 };
 export default SurveyorMenu;
