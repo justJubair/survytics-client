@@ -67,5 +67,16 @@ export const savePaymentDetails = async(payment)=>{
   }
 }
 
+// Post; a survey as a surveyor
+export const postSurvey = async(survey)=>{
+  try{
+    const res = await axiosSecure.post("/surveys", survey)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 
 
