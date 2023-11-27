@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
-import axiosPublic from "../../api/axiosPublic";
 import surveyDetailImg from "../../assets/images/surveyDetail.png";
 import {
   FaRegThumbsDown,
@@ -22,6 +20,7 @@ import SurveyChart from "../../components/SurveyChart/SurveyChart";
 import useVoted from "../../hooks/useVoted";
 import { useState } from "react";
 import SurveyReport from "../../components/SurveyReport/SurveyReport";
+import useSurvey from "../../hooks/useSurvey";
 
 const SurveyDetail = () => {
   const { user, loading } = useAuth();
@@ -30,19 +29,9 @@ const SurveyDetail = () => {
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
 
-  const {
-    data: survey = [],
-    refetch,
-    isLoading,
-  } = useQuery({
-    queryKey: [id, "survey"],
-    queryFn: async () => {
-      const res = await axiosPublic(`/survey/${id}`);
-      return res.data;
-    },
-  });
+  const [survey, refetch, isLoading] = useSurvey(id);
   const [isVoted, isVotedRefetch] = useVoted(survey?._id, user?.email);
-
+ 
   const {
     _id,
     title,
@@ -142,7 +131,7 @@ const SurveyDetail = () => {
           {/* Open the modal using document.getElementById('ID').showModal() method */}
         </button>
         {/* modal content */}
-        <SurveyReport surveyId={_id} surveyTitle={title}/>
+        <SurveyReport surveyId={_id} surveyTitle={title} />
         <div className="px-10 pb-10 pt-14 space-y-3">
           <p>
             <span className="font-semibold">Descripton:</span> {description}

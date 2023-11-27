@@ -9,6 +9,7 @@ import Register from "../pages/Register/Register";
 import Dashboard from "../layout/DashboardLayout";
 import AddSurvey from "../pages/Dashboard/AddSurvey/AddSurvey";
 import ManageSurveys from "../pages/Dashboard/ManageSurveys/ManageSurveys";
+import UpdateSurvey from "../pages/Dashboard/ManageSurveys/UpdateSurvey";
 
 const Router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const Router = createBrowserRouter([
       {
         path: '/dashboard/manageSurveys',
         element: <ManageSurveys/>
+      },
+      {
+        path: '/dashboard/updateSurvey/:id',
+        element: <UpdateSurvey/>
       }
     ],
   },
