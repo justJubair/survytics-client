@@ -4,13 +4,21 @@ import { AiOutlineBars } from "react-icons/ai";
 import logo from "../../../assets/images/logo.png";
 import SurveyorMenu from "./SurveyorMenu";
 import { Link } from "react-router-dom";
+import useRole from "../../../hooks/useRole";
+import useAuth from "../../../hooks/useAuth";
+import Loader from "../../../shared/Loader/Loader";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
-
+  const {user, loading} = useAuth()
+  const [role, isLoading] = useRole(user?.email)
+  console.log(role)
   const handleToggle = () => {
     setActive(!isActive);
   };
+  if(loading || isLoading){
+    return <Loader/>
+  }
   return (
     <>
       {/* Small Screen Navbar */}

@@ -1,7 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../pages/Dashboard/Sidebar/Sidebar";
+import useAuth from "../hooks/useAuth";
+import Loader from "../shared/Loader/Loader";
 
 const Dashboard = () => {
+    const {loading} = useAuth()
+    if(loading){
+        return <Loader/>
+    }
     return(
         <div className="flex">
             {/* sidebar */}
