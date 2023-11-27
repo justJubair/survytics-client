@@ -3,6 +3,7 @@ import { GrLogout } from "react-icons/gr";
 import { AiOutlineBars } from "react-icons/ai";
 import logo from "../../../assets/images/logo.png";
 import SurveyorMenu from "./SurveyorMenu";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
@@ -28,9 +29,9 @@ const Sidebar = () => {
         }  lg:translate-x-0  transition duration-200 ease-in-out`}
       >
         <div>
-          <div className="flex justify-center">
+          <Link to="/" className="flex justify-center">
             <img className="w-32" src={logo} alt="logo" />
-          </div>
+          </Link>
 
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
