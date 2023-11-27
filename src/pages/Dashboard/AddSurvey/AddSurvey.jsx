@@ -50,7 +50,7 @@ const AddSurvey = () => {
     <Container>
      <div className="my-10">
      <SectionTitle
-        heading="Add A Survey"
+        heading="Add  Survey"
         subHeading="New survey || new research"
       />
       {/* survey creation form */}

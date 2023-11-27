@@ -8,6 +8,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Dashboard from "../layout/DashboardLayout";
 import AddSurvey from "../pages/Dashboard/AddSurvey/AddSurvey";
+import ManageSurveys from "../pages/Dashboard/ManageSurveys/ManageSurveys";
 
 const Router = createBrowserRouter([
   {
@@ -24,7 +25,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/survey/:id",
-        element: <SurveyDetail/>
+        element: <SurveyDetail />,
       },
       {
         path: "/proMember",
@@ -34,20 +35,26 @@ const Router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard/>,
-    children: [{
-      path: "/dashboard/addSurvey",
-      element: <AddSurvey/>
-    }]
+    element: <Dashboard />,
+    children: [
+      {
+        path: "/dashboard/addSurvey",
+        element: <AddSurvey />,
+      },
+      {
+        path: '/dashboard/manageSurveys',
+        element: <ManageSurveys/>
+      }
+    ],
   },
   {
     path: "/login",
-    element: <Login/>
+    element: <Login />,
   },
   {
     path: "/register",
-    element: <Register/>
-  }
+    element: <Register />,
+  },
 ]);
 
 export default Router;
