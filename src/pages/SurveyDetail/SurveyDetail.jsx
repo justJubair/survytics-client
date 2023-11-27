@@ -144,7 +144,7 @@ const SurveyDetail = () => {
           </p>
 
           {isVoted ? (
-            <SurveyChart voteYes={VoteYes} voteNo={VoteNo} />
+            <SurveyChart voteYes={VoteYes} voteNo={VoteNo} width={300}/>
           ) : (
             <div>
               <p className="font-semibold mb-4">

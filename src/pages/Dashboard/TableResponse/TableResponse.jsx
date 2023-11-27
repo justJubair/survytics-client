@@ -8,10 +8,10 @@ const TableResponse = () => {
     return(
         <Container>
 
-        <div>
+        <div className="mb-10">
            {
             votes?.map(survey=> <div key={survey._id} className="overflow-x-auto">
-               <h2 className="text-center mt-12 mb-4 text-xl font-bold">{survey.title}</h2>
+               <h2 className="text-center mt-10 mb-4 text-xl font-bold">{survey.title}</h2>
             <table className="table table-zebra">
               {/* head */}
               <thead>
@@ -26,8 +26,8 @@ const TableResponse = () => {
               <tbody>
                 {/* row 1 */}
                 {
-                    survey?.participants?.map(participant=>   <tr key={participant._id}>
-                        <th>1</th>
+                    survey?.participants?.map((participant, idx)=>   <tr key={participant._id}>
+                        <th>{idx+1}</th>
                         <td>{participant?.userName}</td>
                         <td>{participant?.userEmail}</td>
                         <td>{participant?.time}</td>

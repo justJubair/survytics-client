@@ -11,6 +11,7 @@ import AddSurvey from "../pages/Dashboard/AddSurvey/AddSurvey";
 import ManageSurveys from "../pages/Dashboard/ManageSurveys/ManageSurveys";
 import UpdateSurvey from "../pages/Dashboard/ManageSurveys/UpdateSurvey";
 import TableResponse from "../pages/Dashboard/TableResponse/TableResponse";
+import ChartResponse from "../pages/Dashboard/ChartResponse/ChartResponse";
 
 const Router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard/responseTable",
         element: <TableResponse />,
+      },
+      {
+        path: "/dashboard/responseChart",
+        element: <ChartResponse/>,
       },
     ],
   },
