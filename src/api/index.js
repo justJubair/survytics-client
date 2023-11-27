@@ -77,6 +77,17 @@ export const postSurvey = async (survey) => {
   }
 };
 
+// Put; update a survey as surveyor;
+export const updateSurvey = async(surveyId ,survey)=>{
+  try{
+    const res = await axiosSecure.put(`/survey/${surveyId}`, survey)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 // Post; a report
 export const postReport = async (report) => {
   try {

@@ -1,26 +1,25 @@
-
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import Container from "../../../shared/Container/Container";
+import { useLoaderData } from "react-router-dom";
+import { updateSurvey } from "../../../api";
+
 
 const UpdateSurvey = () => {
-  const [category, setCategory] = useState("");
+  const survey = useLoaderData()
+  const [category, setCategory] = useState(survey?.category);
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
-  const handleAddSurvey = async (e) => {
+  const handleUpdateSurvey = async (e) => {
     e.preventDefault();
     const form = e.target;
     const title = form.title.value;
     const question = form.question.value;
     const description = form.description.value;
     const deadline = form.date.value;
-    const like = 0;
-    const dislike = 0;
-    const VoteYes = 0;
-    const VoteNo = 0;
-    const status = "published";
+    
     // if deadline is passed todays date then disable the submit button
     const dateDiff = new Date(deadline).getTime() - new Date().getTime();
     if (dateDiff < 0) {
@@ -32,14 +31,13 @@ const UpdateSurvey = () => {
       question,
       description,
       category,
-      like,
-      dislike,
-      VoteYes,
-      VoteNo,
-      status,
       deadline,
     };
-  
+    const dbResponse = await updateSurvey(survey?._id, newSurvey)
+    if(dbResponse.modifiedCount>0){
+      toast.success("Updated successfully")
+      
+    }
     // const dbResponse = await postSurvey(newSurvey)
     // if(dbResponse.insertedId){
     //   toast.success("Your survey has been added")
@@ -55,13 +53,14 @@ const UpdateSurvey = () => {
       />
       {/* survey creation form */}
       <div className="mt-10">
-        <form onSubmit={handleAddSurvey} className="space-y-5">
+        <form onSubmit={handleUpdateSurvey} className="space-y-5">
           <div className="flex items-center gap-4">
             <div className="w-full">
               <label className="label">
                 <span className="label-text">Survey title</span>
               </label>
               <input
+                defaultValue={survey?.title}
                 name="title"
                 type="text"
                 placeholder="Survey title"
@@ -74,6 +73,7 @@ const UpdateSurvey = () => {
                 <span className="label-text">Deadline</span>
               </label>
               <input
+                defaultValue={survey?.deadline}
                 name="date"
                 className="input input-bordered w-full "
                 type="date"
@@ -84,7 +84,7 @@ const UpdateSurvey = () => {
           <div className="flex items-center gap-4">
             <select
               onChange={handleCategory}
-              defaultValue="default"
+              defaultValue={survey.category}
               required
               className="select select-bordered w-full"
             >
@@ -97,6 +97,7 @@ const UpdateSurvey = () => {
               <option>Technology</option>
             </select>
             <input
+              defaultValue={survey?.question}
               name="question"
               type="text"
               placeholder="Survey question"
@@ -105,17 +106,17 @@ const UpdateSurvey = () => {
             />
           </div>
           <textarea
+            defaultValue={survey?.description}
             className="textarea w-full textarea-bordered"
             name="description"
             placeholder="Description..."
             required
           ></textarea>
           <button
-            disabled={!category}
             className="btn w-full text-white bg-gradient-to-r from-cyan-600 to-[#24962a] hover:scale-95"
             type="submit"
           >
-            Add Survey
+            Update Survey
           </button>
         </form>
       </div>
