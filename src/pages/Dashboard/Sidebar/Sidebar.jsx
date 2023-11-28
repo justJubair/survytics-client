@@ -30,7 +30,7 @@ const Sidebar = () => {
       </div>
       {/* Sidebar */}
       <div
-        className={`z-10 bg-gradient-to-r from-cyan-600 to-[#24962a] lg:fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 inset-y-0 absolute h-[1200px] md:h-[800px] lg:h-full left-0 transform ${
+        className={`z-10 bg-gradient-to-r from-cyan-600 to-[#24962a] fixed flex flex-col justify-between overflow-x-hidden bg-gray-100 w-64 space-y-6 px-2 py-4 inset-y-0  left-0 transform ${
           isActive && "-translate-x-full"
         }  lg:translate-x-0   transition duration-200 ease-in-out `}
       >

@@ -7,9 +7,12 @@ import FeedBackModal from "./FeedBackModal";
 import axiosPublic from "../../../api/axiosPublic";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import DeleteModal from "./DeleteModal";
 const SurveyTable = ({ survey, idx, role }) => {
   const [surveyId, setSurveyId] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const [unpublishModalOpen, setUnpublishModalOpen] = useState(false)
+  const [unpublishSurveyId, setUnpublishSurveyId] = useState(null)
   const { data: reports = [] } = useQuery({
     queryKey: [surveyId, "reports"],
     queryFn: async () => {
@@ -18,10 +21,15 @@ const SurveyTable = ({ survey, idx, role }) => {
     },
   });
 
-  const handleFeedbacks = async (_id) => {
+  const handleFeedbacks = (_id) => {
     setIsOpen(true);
     setSurveyId(_id);
   };
+
+  const handleDeleteModal = async(_id)=>{
+    setUnpublishModalOpen(true)
+    setUnpublishSurveyId(_id)
+  }
   return (
     <>
       <tr>
@@ -37,9 +45,9 @@ const SurveyTable = ({ survey, idx, role }) => {
         </td>}
         {role === "admin" && <td>
           {" "}
-          <Link className="btn btn-xs text-red-600" to={`/dashboard/updateSurvey/${survey._id}`}>
-           <AiFillDelete size={20}/>
-          </Link>
+         
+           <AiFillDelete onClick={()=> handleDeleteModal(survey._id)} className="btn btn-xs text-red-600" size={45}/>
+            <DeleteModal unpublishModalOpen={unpublishModalOpen} setUnpublishModalOpen={setUnpublishModalOpen} unpublishSurveyId={unpublishSurveyId}/>
         </td>}
       
         {role === "surveyor" &&  <td>

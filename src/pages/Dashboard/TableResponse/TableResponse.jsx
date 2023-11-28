@@ -4,13 +4,13 @@ import Container from "../../../shared/Container/Container";
 
 const TableResponse = () => {
     const votes = useVotes()
- 
+    const publishedSurveys = votes.filter(survey=> survey.status === "published")
     return(
         <Container>
 
         <div className="mb-10">
            {
-            votes?.map(survey=> <div key={survey._id} className="overflow-x-auto">
+            publishedSurveys?.map(survey=> <div key={survey._id} className="overflow-x-auto">
              <div className="mt-10 mb-5">
              <h2 className="text-center  text-xl font-bold">{survey.title}</h2>
                <p className="text-center font-medium text-green-500 mt-2 text-sm">{survey?.question}</p>

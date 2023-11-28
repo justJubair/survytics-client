@@ -4,11 +4,11 @@ import Container from "../../../shared/Container/Container";
 
 const ChartResponse = () => {
   const [surveys] = useSurveys("", true, "");
-
+  const publishedSurveys = surveys.filter(survey=> survey.status === "published")
   return (
     <Container>
       <div className="flex flex-col justify-center items-center mb-10">
-        {surveys.map((survey) => (
+        {publishedSurveys.map((survey) => (
           <div key={survey._id}>
              <div className="mt-10 mb-5">
              <h2 className="text-center  text-xl font-bold">{survey.title}</h2>

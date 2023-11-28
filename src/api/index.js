@@ -77,6 +77,17 @@ export const postSurvey = async (survey) => {
   }
 };
 
+// DELETE; a survey as a admin
+export const unpublishSurvey =async(id)=>{
+  try{
+    const res = await axiosSecure.delete(`/survey/${id}`)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 // Put; update a survey as surveyor;
 export const updateSurvey = async(surveyId ,survey)=>{
   try{

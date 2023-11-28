@@ -10,7 +10,8 @@ const Surveys = () => {
   const [category, setCategory] = useState("")
   const [asc, setAsc] = useState(true);
   const [surveys] = useSurveys(searchText, asc, category);
-
+  const publishedSurveys = surveys.filter(survey=> survey.status === "published")
+ 
   const handleSearch = (e) => {
     e.preventDefault();
     setSearchText(e.target.search.value);
@@ -42,7 +43,7 @@ const Surveys = () => {
       </div>
 
       <div className="max-w-screen-xl mt-16 mx-auto px-4 grid grid-cols-1 gap-4 md:gap-6 md:grid-cols-2 lg:px-0">
-        {surveys.map((survey) => (
+        {publishedSurveys.map((survey) => (
           <SurveyCard key={survey._id} survey={survey} />
         ))}
       </div>
