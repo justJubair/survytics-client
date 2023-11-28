@@ -37,7 +37,10 @@ const FeebBackModal = ({ reports, isOpen, setIsOpen }) => {
                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
                   {reports.length ? (
                     <div>
-                      {reports.map((report) => (
+                      {reports.map((report) => report.admin ? <div className="mb-6" key={report._id}>
+                        <h3 className="font-semibold">From: Admin</h3>
+                        <p>This survey has been unpublised for: {report.message}</p>
+                      </div> :(
                         <div key={report._id}>
                             <div className="flex items-center gap-2">
                             <img className="w-12 h-12 object-cover rounded-full" src={report.userPhoto} alt="user" />

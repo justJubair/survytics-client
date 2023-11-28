@@ -32,11 +32,11 @@ const SurveyTable = ({ survey, idx, role, refetch }) => {
   }
   return (
     <>
-      <tr>
+      <tr className={`${survey?.status === "unpublished" ? "bg-gray-300 text-gray-400" : ""}`}>
         <th>{idx + 1}</th>
         <td>{survey?.title}</td>
         <td>{survey?.deadline}</td>
-        <td>{survey?.status}</td>
+        <td>{survey?.category}</td>
         {role === "surveyor" &&   <td>
           {" "}
           <Link to={`/dashboard/updateSurvey/${survey._id}`}>

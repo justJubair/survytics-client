@@ -25,7 +25,7 @@ const ManageSurveys = () => {
                   <th>#</th>
                   <th>Title</th>
                   <th>Deadline</th>
-                  <th>Status</th>
+                  <th>{role ==="surveyor" ? "Category" : "Status"}</th>
                   <th>Action</th>
                   {role === "surveyor" &&  <th>Feedbacks</th>}
                  
