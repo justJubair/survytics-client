@@ -3,6 +3,7 @@ import { FaUsersGear } from "react-icons/fa6";
 import { RiListSettingsLine } from "react-icons/ri";
 import { MdOutlineQuestionAnswer } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
+import { FaSackDollar } from "react-icons/fa6";
 const AdminMenu = () => {
   return (
     <>
@@ -18,6 +19,19 @@ const AdminMenu = () => {
           >
             <FaUsersGear/>
            Manage Users
+          </NavLink>
+        </li>
+        <li className="w-full hover:text-white">
+          <NavLink
+            to="/dashboard/paymentHistory"
+            className={({ isActive }) =>
+            `flex items-center px-4 py-2 gap-2  transition-colors duration-300 transform   hover:text-gray-700 ${
+              isActive ? 'bg-gradient-to-r from-cyan-700 to-cyan-600  text-white' : 'text-white'
+            }`
+          }
+          >
+           <FaSackDollar/>
+            Payment History
           </NavLink>
         </li>
         <li className="w-full hover:text-white">

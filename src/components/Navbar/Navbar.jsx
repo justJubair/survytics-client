@@ -33,7 +33,8 @@ const Navbar = () => {
           Surveys
         </NavLink>
       </li>
-      <li className=" hover:text-green-500">
+      {
+        role === "user" &&   <li className=" hover:text-green-500">
         <NavLink
           to="/proMember"
           className={({ isActive }) =>
@@ -45,6 +46,8 @@ const Navbar = () => {
           Pro member
         </NavLink>
       </li>
+      }
+    
       {
         role === "surveyor" &&   <li className=" hover:text-green-500">
         <NavLink
@@ -62,7 +65,7 @@ const Navbar = () => {
       {
         role === "admin" &&   <li className=" hover:text-green-500">
         <NavLink
-          to="/dashboard/addSurvey"
+          to="/dashboard/manageUsers"
           className={({ isActive }) =>
             isActive
               ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2  text-white rounded"
@@ -130,7 +133,7 @@ const Navbar = () => {
             user ? <div className="border-l-2 pl-3 dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <img alt="Tailwind CSS Navbar component" src={user?.photoURL} />
+                <img alt="users profile" src={user?.photoURL} />
               </div>
             </label>
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">

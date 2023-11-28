@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import axiosSecure from "../../api/axiosSecure";
 import { savePaymentDetails } from "../../api";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+import useRole from "../../hooks/useRole";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
+  const [, , refetch] = useRole()
   const { user } = useAuth();
+  const navigate = useNavigate()
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
   const [paymentId, setPaymentId] = useState("")
@@ -72,6 +76,8 @@ const CheckoutForm = () => {
         toast.success(
           `Congrats ${user?.displayName} you have become pro member`
         );
+        refetch()
+        navigate("/")
       }
     }
   };

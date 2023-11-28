@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import axiosSecure from "../api/axiosSecure"
 
 const useRole = (email)=>{
-    const {data:role=null, isLoading} = useQuery({
+    const {data:role=null, isLoading, refetch} = useQuery({
         enabled: !!email,
         queryKey: [email, "role"],
         queryFn: async()=>{
@@ -10,7 +10,7 @@ const useRole = (email)=>{
             return res.data
         }
     })
-    return [role, isLoading]
+    return [role, isLoading, refetch]
 }
 
 export default useRole

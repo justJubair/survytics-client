@@ -13,6 +13,7 @@ import UpdateSurvey from "../pages/Dashboard/ManageSurveys/UpdateSurvey";
 import TableResponse from "../pages/Dashboard/TableResponse/TableResponse";
 import ChartResponse from "../pages/Dashboard/ChartResponse/ChartResponse";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 
 const Router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const Router = createBrowserRouter([
       {
         path: "/dashboard/manageUsers",
         element: <ManageUsers/>,
+      },
+      {
+        path: "/dashboard/paymentHistory",
+        element: <PaymentHistory/>,
       },
 
     ],

@@ -120,3 +120,14 @@ export const postReport = async (report) => {
     console.log(err);
   }
 };
+
+// GET; all the payments
+export const getPayments = async()=>{
+  try{
+    const res = await axiosSecure.get("/payments")
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
