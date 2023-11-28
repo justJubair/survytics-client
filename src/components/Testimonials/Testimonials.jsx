@@ -6,7 +6,7 @@ const Testimonials = () => {
     return(
         <ContainerBig>
         <div className="my-16">
-            <SectionTitle heading="Testimonials" subHeading="check out what our client says"/>
+            <SectionTitle heading="Testimonials" subHeading="Check out what our client says"/>
              <SwiperSlider/>
         </div>
         </ContainerBig>

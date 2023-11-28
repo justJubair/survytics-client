@@ -30,7 +30,7 @@ const HowItWorks = () => {
              <Lottie animationData={createAnime} loop={true}></Lottie>
               </div>
               <h2 className="text-xl md:text-2xl font-bold">Question creation</h2>
-              <p className=" text-lg text-gray-600">Effortlessly craft professional and attractive surveys, forms, and questionnaires to meet any requirement.</p>
+              <p className=" text-gray-600">Effortlessly craft professional and attractive surveys, forms, and questionnaires to meet any requirement.</p>
             </div>
           {/* Box Two */}
             <div className="flex flex-col items-center justify-center text-center">
@@ -40,7 +40,7 @@ const HowItWorks = () => {
              <Lottie animationData={shareAnime} loop={true}></Lottie>
              </div>
               <h2 className="text-xl md:text-2xl font-bold">Survey distribution</h2>
-              <p className=" text-lg text-gray-600">Efficiently gather feedback via web links, embedded forms, emails, social media, and other channels.</p>
+              <p className="  text-gray-600">Efficiently gather feedback via web links, embedded forms, emails, social media, and other channels.</p>
             </div>
           {/* Box three */}
             <div className="flex flex-col items-center justify-center text-center">
@@ -49,7 +49,7 @@ const HowItWorks = () => {
              <Lottie animationData={analyseAnime} loop={true}></Lottie>
              </div>
               <h2 className="text-xl md:text-2xl font-bold">Live results</h2>
-              <p className=" text-lg text-gray-600">Instantly access critical data insights with our powerful and comprehensive analysis tools. Our result are accurate</p>
+              <p className=" text-gray-600">Instantly access critical data insights with our powerful and comprehensive analysis tools.</p>
             </div>
             
         </div>
