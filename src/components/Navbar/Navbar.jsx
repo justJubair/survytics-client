@@ -1,8 +1,11 @@
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import useAuth from "../../hooks/useAuth";
+import useRole from "../../hooks/useRole";
 const Navbar = () => {
   const {user, logOut} = useAuth()
+  const [role] = useRole(user?.email)
+ 
   const handleLogout = async()=>{
     await logOut()
   } 
@@ -42,7 +45,8 @@ const Navbar = () => {
           Pro member
         </NavLink>
       </li>
-      <li className=" hover:text-green-500">
+      {
+        role === "surveyor" &&   <li className=" hover:text-green-500">
         <NavLink
           to="/dashboard/addSurvey"
           className={({ isActive }) =>
@@ -54,6 +58,22 @@ const Navbar = () => {
           Dashboard
         </NavLink>
       </li>
+      }
+      {
+        role === "admin" &&   <li className=" hover:text-green-500">
+        <NavLink
+          to="/dashboard/addSurvey"
+          className={({ isActive }) =>
+            isActive
+              ? "bg-gradient-to-r from-cyan-600 to-[#24962a] px-4 py-2  text-white rounded"
+              : "px-4 py-2"
+          }
+        >
+          Dashboard
+        </NavLink>
+      </li>
+      }
+    
       <li className=" hover:text-green-500">
         <NavLink
           to="/aboutUs"

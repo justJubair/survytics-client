@@ -10,12 +10,10 @@ const ChartResponse = () => {
       <div className="flex flex-col justify-center items-center mb-10">
         {surveys.map((survey) => (
           <div key={survey._id}>
-            <div className="mt-10 mb-4">
-              <h2 className="text-center  text-xl font-bold">{survey.title}</h2>
-              <p className="text-center text-gray-500 mt-1 text-sm">
-                {survey?.question}
-              </p>
-            </div>
+             <div className="mt-10 mb-5">
+             <h2 className="text-center  text-xl font-bold">{survey.title}</h2>
+               <p className="text-center font-medium text-green-500 mt-2 text-sm">{survey?.question}</p>
+             </div>
             <SurveyChart
               voteYes={survey?.VoteYes}
               voteNo={survey?.VoteNo}

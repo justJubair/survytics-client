@@ -1,3 +1,5 @@
+import useAuth from "../../../hooks/useAuth";
+import useRole from "../../../hooks/useRole";
 import useSurveys from "../../../hooks/useSurveys";
 import Container from "../../../shared/Container/Container";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
@@ -5,7 +7,8 @@ import SurveyTable from "./SurveyTable";
 
 const ManageSurveys = () => {
   const [surveys] = useSurveys("", true, "");
-
+  const {user} = useAuth()
+  const [role] = useRole(user?.email)
   return (
     <div className="my-10">
       <Container>
@@ -24,12 +27,13 @@ const ManageSurveys = () => {
                   <th>Deadline</th>
                   <th>Status</th>
                   <th>Action</th>
-                  <th>Feedbacks</th>
+                  {role === "surveyor" &&  <th>Feedbacks</th>}
+                 
                 </tr>
               </thead>
               <tbody>
                 {surveys.map((survey, idx) => (
-                  <SurveyTable key={survey._id} idx={idx} survey={survey} />
+                  <SurveyTable key={survey._id} idx={idx} survey={survey} role={role}/>
                 ))}
               </tbody>
             </table>

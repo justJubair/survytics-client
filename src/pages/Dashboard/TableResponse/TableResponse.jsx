@@ -11,9 +11,9 @@ const TableResponse = () => {
         <div className="mb-10">
            {
             votes?.map(survey=> <div key={survey._id} className="overflow-x-auto">
-             <div className="mt-10 mb-4">
+             <div className="mt-10 mb-5">
              <h2 className="text-center  text-xl font-bold">{survey.title}</h2>
-               <p className="text-center text-gray-500 mt-1 text-sm">{survey?.question}</p>
+               <p className="text-center font-medium text-green-500 mt-2 text-sm">{survey?.question}</p>
              </div>
             <table className="table table-zebra">
               {/* head */}

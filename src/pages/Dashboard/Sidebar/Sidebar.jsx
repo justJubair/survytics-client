@@ -7,26 +7,24 @@ import { Link } from "react-router-dom";
 import useRole from "../../../hooks/useRole";
 import useAuth from "../../../hooks/useAuth";
 import Loader from "../../../shared/Loader/Loader";
+import AdminMenu from "./AdminMenu";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
-  const {user, loading} = useAuth()
-  const [role, isLoading] = useRole(user?.email)
-  console.log(role)
+  const { user, loading } = useAuth();
+  const [role, isLoading] = useRole(user?.email);
+  
   const handleToggle = () => {
     setActive(!isActive);
   };
-  if(loading || isLoading){
-    return <Loader/>
+  if (loading || isLoading) {
+    return <Loader />;
   }
   return (
     <>
       {/* Small Screen Navbar */}
       <div className="bg-gray-100 text-gray-800 flex justify-between lg:hidden">
-        <button
-          onClick={handleToggle}
-          className="z-20 p-4 focus:outline-none"
-        >
+        <button onClick={handleToggle} className="z-20 p-4 focus:outline-none">
           <AiOutlineBars className="h-5 w-5" />
         </button>
       </div>
@@ -44,7 +42,8 @@ const Sidebar = () => {
           {/* Nav Items */}
           <div className="flex flex-col justify-between flex-1 mt-6">
             <nav>
-                <SurveyorMenu/>
+              {role === "surveyor" && <SurveyorMenu />}
+              {role === "admin" && <AdminMenu />}
             </nav>
           </div>
         </div>
