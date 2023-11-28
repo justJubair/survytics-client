@@ -1,5 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination } from "swiper/modules";
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -12,6 +13,10 @@ const SwiperSlider = () => {
       grabCursor={true}
       centeredSlides={true}
       slidesPerView={"auto"}
+      // autoplay={{
+      //   delay: 2500,
+      //   disableOnInteraction: false,
+      // }}
       coverflowEffect={{
         rotate: 50,
         stretch: 0,
@@ -20,7 +25,7 @@ const SwiperSlider = () => {
         slideShadows: true,
       }}
       pagination={true}
-      modules={[EffectCoverflow, Pagination]}
+      modules={[EffectCoverflow, Pagination , Autoplay]}
       className="mySwiper my-10"
     >
       <SwiperSlide>

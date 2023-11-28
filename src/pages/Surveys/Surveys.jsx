@@ -4,6 +4,7 @@ import useSurveys from "../../hooks/useSurveys";
 import SurveySearch from "../../components/SurveySearch/SurveySearch";
 import { useState } from "react";
 import SurveyCategory from "../../components/SurveyCategory/SurveyCategory";
+import { Helmet } from "react-helmet-async";
 
 const Surveys = () => {
   const [searchText, setSearchText] = useState("");
@@ -22,6 +23,9 @@ const Surveys = () => {
   }
   return (
     <div>
+       <Helmet>
+        <title>Survytics | Surveys</title>
+      </Helmet>
       <SurveyBanner />
      
       {/* survey search, sort and filter functionalities */}

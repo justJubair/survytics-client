@@ -22,6 +22,7 @@ import { useState } from "react";
 import SurveyReport from "../../components/SurveyReport/SurveyReport";
 import useSurvey from "../../hooks/useSurvey";
 import useRole from "../../hooks/useRole";
+import { Helmet } from "react-helmet-async";
 
 const SurveyDetail = () => {
   const { user, loading } = useAuth();
@@ -115,6 +116,9 @@ const SurveyDetail = () => {
 
   return (
     <div className="max-w-screen-xl mx-auto px-4">
+       <Helmet>
+        <title>{title}</title>
+      </Helmet>
       {/* banner */}
 
       <div className="h-[400px] pt-28 flex items-center justify-center px-4 lg:px-0">
