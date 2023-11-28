@@ -7,7 +7,7 @@ import analyseAnime from "../../assets/animations/analyse.json"
 import Lottie from "lottie-react";
 const HowItWorks = () => {
   return (
-    <div className="relative mt-20 py-16 bg-gradient-to-t from-green-300 to-green-50">
+    <div className="relative mt-20 py-16 bg-gradient-to-t from-green-200 to-green-50">
       <ContainerBig>
         {/* Arro icon */}
         <div className="flex justify-center">

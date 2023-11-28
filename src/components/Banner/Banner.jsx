@@ -7,7 +7,7 @@ const Banner = () => {
         <div>
            <img className="object-cover w-full h-screen" src={bannerImg} alt="" />
            {/* overlay */}
-           <div className="absolute w-full top-0 left-0 bg-green-800/90 h-screen"></div>
+           <div className="absolute w-full top-0 left-0 bg-gradient-to-t from-green-800/60 to-green-700 h-screen"></div>
            <div className=" absolute flex flex-col-reverse items-center justify-center px-4 bottom-10  md:bottom-16 lg:bottom-20 md:flex-row lg:px-0">
             {/* text content */}
             <div className=" md:w-1/2 text-white space-y-4">

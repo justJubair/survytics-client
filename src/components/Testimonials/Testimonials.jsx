@@ -1,7 +1,14 @@
+import ContainerBig from "../../shared/ContainerBig/ContainerBig";
+import SectionTitle from "../../shared/SectionTitle/SectionTitle";
+import SwiperSlider from "./SwiperSlider/SwiperSlider";
+
 const Testimonials = () => {
     return(
-        <div>
-             <p> HELLO I Am Testimonials </p>
+        <ContainerBig>
+        <div className="my-16">
+            <SectionTitle heading="Testimonials" subHeading="check out what our client says"/>
+             <SwiperSlider/>
         </div>
+        </ContainerBig>
     )}
 export default Testimonials;
