@@ -17,7 +17,7 @@ const ManageSurveys = () => {
           subHeading="Update || Feedbacks || and more"
         />
         <div>
-          <div className="overflow-x-auto">
+          <div className="overflow-x-auto mt-6">
             <table className="table table-zebra">
               {/* head */}
               <thead>

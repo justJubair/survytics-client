@@ -36,7 +36,7 @@ const SurveyTable = ({ survey, idx, role, refetch }) => {
         <th>{idx + 1}</th>
         <td>{survey?.title}</td>
         <td>{survey?.deadline}</td>
-        <td>{survey?.category}</td>
+        <td>{role === "surveyor" ? survey?.category : survey?.status}</td>
         {role === "surveyor" &&   <td>
           {" "}
           <Link to={`/dashboard/updateSurvey/${survey._id}`}>

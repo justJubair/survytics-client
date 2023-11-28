@@ -4,7 +4,7 @@ import Container from "../../../shared/Container/Container";
 
 const TableResponse = () => {
     const votes = useVotes()
-    const publishedSurveys = votes.filter(survey=> survey.status === "published")
+    const publishedSurveys = votes?.filter(survey=> survey.status === "published")
     return(
         <Container>
 

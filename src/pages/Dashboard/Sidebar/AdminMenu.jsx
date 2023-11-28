@@ -9,7 +9,7 @@ const AdminMenu = () => {
       <ul className="font-semibold flex flex-col bg-gradient-to-r from-cyan-600 to-[#24962a] gap-2">
         <li className="w-full hover:text-white">
           <NavLink
-            to="/dashboard/addSurvey"
+            to="/dashboard/manageUsers"
             className={({ isActive }) =>
             `flex items-center px-4 py-2 mt-5 gap-2  transition-colors duration-300 transform   hover:text-gray-700 ${
               isActive ? 'bg-gradient-to-r from-cyan-700 to-cyan-600  text-white' : 'text-white'

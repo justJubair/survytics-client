@@ -4,7 +4,7 @@ import Container from "../../../shared/Container/Container";
 
 const ChartResponse = () => {
   const [surveys] = useSurveys("", true, "");
-  const publishedSurveys = surveys.filter(survey=> survey.status === "published")
+  const publishedSurveys = surveys?.filter(survey=> survey.status === "published")
   return (
     <Container>
       <div className="flex flex-col justify-center items-center mb-10">
