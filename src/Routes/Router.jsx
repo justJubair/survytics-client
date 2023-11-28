@@ -16,11 +16,13 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
+import Error from "../pages/Error/Error";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <Error/>,
     children: [
       {
         path: "/",
@@ -43,6 +45,7 @@ const Router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+    errorElement: <Error/>,
     children: [
       {
         path: "/dashboard/addSurvey",

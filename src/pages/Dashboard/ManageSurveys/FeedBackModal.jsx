@@ -39,7 +39,7 @@ const FeebBackModal = ({ reports, isOpen, setIsOpen }) => {
                     <div>
                       {reports.map((report) => report.admin ? <div className="mb-6" key={report._id}>
                         <h3 className="font-semibold">From: Admin</h3>
-                        <p>This survey has been unpublised for: {report.message}</p>
+                        <p>This survey has been unpublised for: <span className="font-medium">{report.message}</span></p>
                       </div> :(
                         <div key={report._id}>
                             <div className="flex items-center gap-2">
