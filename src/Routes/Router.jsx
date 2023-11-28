@@ -15,6 +15,7 @@ import ChartResponse from "../pages/Dashboard/ChartResponse/ChartResponse";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
+import AdminRoute from "./AdminRoute";
 
 const Router = createBrowserRouter([
   {
@@ -67,7 +68,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/dashboard/manageUsers",
-        element: <ManageUsers/>,
+        element: <AdminRoute><ManageUsers/></AdminRoute>
       },
       {
         path: "/dashboard/paymentHistory",

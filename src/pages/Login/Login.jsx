@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../shared/SocialLogin/SocialLogin";
 import loginGif from "../../assets/images/loginGif.png";
 import logo from "../../assets/images/logo.png";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
+  const location =  useLocation()
   const { signIn } = useAuth();
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -17,7 +18,8 @@ const Login = () => {
       const res = await signIn(email, password);
       if (res.user) {
         toast.success("Logged in successful");
-        navigate("/");
+
+        navigate(location?.state?.path ? location?.state?.path : "/");
       }
     } catch (err) {
       toast.error(err.message);

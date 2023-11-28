@@ -121,7 +121,7 @@ const Navbar = () => {
               className="hidden w-36 rounded px-4 py-2 bg-gradient-to-r from-cyan-600 to-[#24962a] lg:block shadow-xl"
               src={logo}
               alt="logo"
-            />
+            ></img>
           </div>
        
         <div className="flex items-center pr-4 lg:pr-0">

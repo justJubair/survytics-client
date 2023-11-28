@@ -1,6 +1,6 @@
 import bannerImg from "../../assets/images/banner.jpg"
 import bannerAnime2 from "../../assets/animations/bannerAnime.gif"
-import Button from "../../shared/Button/Button";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
     return(
@@ -13,8 +13,8 @@ const Banner = () => {
             <div className=" md:w-1/2 text-white space-y-4">
                 <h1 className="text-2xl md:text-4xl lg:text-6xl font-extrabold leading-tight">A simple and powerful online survey tool</h1>
                 <h3 className="text-sm md:text-2xl text-base-300  animate-pulse">Create FREE online surveys with unlimited questions and responses!</h3>
-              
-                <Button label="Explore"/>
+                <button className="btn bg-gradient-to-r from-cyan-600 to-[#24962a] border-none text-white hover:bg-white hover:scale-x-110"><Link to="/surveys">Explore</Link></button>
+                
             </div>
             {/* animation */}
             <div>
