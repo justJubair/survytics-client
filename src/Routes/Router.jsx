@@ -14,6 +14,7 @@ import TableResponse from "../pages/Dashboard/TableResponse/TableResponse";
 import ChartResponse from "../pages/Dashboard/ChartResponse/ChartResponse";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import PrivateRoute from "./PrivateRoute";
 
 const Router = createBrowserRouter([
   {
@@ -34,7 +35,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/proMember",
-        element: <ProMember />,
+        element: <PrivateRoute><ProMember /></PrivateRoute>
       },
     ],
   },

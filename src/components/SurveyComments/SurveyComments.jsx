@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import useComments from "../../hooks/useComments";
 import Comment from "./Comment";
 import { postComment } from "../../api";
-const SurveyComments = ({ surveyId, surveyTitle }) => {
+const SurveyComments = ({ surveyId, surveyTitle, role }) => {
   const [comments, refetch] = useComments(surveyId);
 
   const { user } = useAuth();
@@ -43,11 +43,12 @@ const SurveyComments = ({ surveyId, surveyTitle }) => {
       <div className="mt-8">
         <form onSubmit={handleComment}>
           <textarea
+        disabled={role !=="pro-user" && true}
             className="w-full md:w-1/2 textarea textarea-success"
             name="comment"
             placeholder="Write your comment..."
           ></textarea>
-          <button type="submit" className="absolute -ml-8 mt-10">
+          <button disabled={role !=="pro-user" && true} type="submit" className="absolute -ml-8 mt-10">
             <IoMdSend className="text-green-600" size={25} />
           </button>
         </form>

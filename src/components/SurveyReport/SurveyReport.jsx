@@ -3,7 +3,7 @@ import { postReport } from "../../api";
 import useAuth from "../../hooks/useAuth";
 
 /* eslint-disable react/prop-types */
-const SurveyReport = ({surveyId, surveyTitle}) => {
+const SurveyReport = ({surveyId, surveyTitle, role}) => {
     const {user} = useAuth()
     const handleReport = async e =>{
         e.preventDefault()
@@ -27,8 +27,8 @@ const SurveyReport = ({surveyId, surveyTitle}) => {
         <div className="modal-box">
           <h3 className="font-bold text-lg">Report this survey</h3>
           <form onSubmit={handleReport} className="my-4 space-y-4">
-            <input className="input input-bordered w-full " type="text" name="report" id="" placeholder="write your report..." required/>
-            <button className="btn btn-error text-white">Report</button>
+            <input disabled={(role === "admin" || role==="surveyor") && true } className="input input-bordered w-full " type="text" name="report" id="" placeholder="write your report..." required/>
+            <button  disabled={(role === "admin" || role==="surveyor") && true }  className="btn btn-error text-white">Report</button>
           </form>
           <div className="modal-action">
             <form method="dialog">

@@ -33,8 +33,7 @@ const Navbar = () => {
           Surveys
         </NavLink>
       </li>
-      {
-        role === "user" &&   <li className=" hover:text-green-500">
+       <li className=" hover:text-green-500">
         <NavLink
           to="/proMember"
           className={({ isActive }) =>
@@ -46,7 +45,7 @@ const Navbar = () => {
           Pro member
         </NavLink>
       </li>
-      }
+     
     
       {
         role === "surveyor" &&   <li className=" hover:text-green-500">

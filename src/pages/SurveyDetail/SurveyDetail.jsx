@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import surveyDetailImg from "../../assets/images/surveyDetail.png";
 import {
   FaRegThumbsDown,
@@ -21,9 +21,13 @@ import useVoted from "../../hooks/useVoted";
 import { useState } from "react";
 import SurveyReport from "../../components/SurveyReport/SurveyReport";
 import useSurvey from "../../hooks/useSurvey";
+import useRole from "../../hooks/useRole";
 
 const SurveyDetail = () => {
   const { user, loading } = useAuth();
+  const [role] = useRole(user?.email)
+  
+  const navigate = useNavigate()
   const { id } = useParams();
   const [buttonDisable, setButtonDisable] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -46,6 +50,10 @@ const SurveyDetail = () => {
   } = survey;
 
   const handleVoteYes = async () => {
+    if(!user){
+      return navigate("/login")
+    }
+  
     const res = await patchVoteCount(_id, "yes");
     if (res.modifiedCount > 0) {
       const votingDetails = {
@@ -64,6 +72,9 @@ const SurveyDetail = () => {
     }
   };
   const handleVoteNo = async () => {
+    if(!user){
+      return navigate("/login")
+    }
     const res = await patchVoteCount(_id, "no");
     if (res.modifiedCount > 0) {
       const votingDetails = {
@@ -131,7 +142,7 @@ const SurveyDetail = () => {
           {/* Open the modal using document.getElementById('ID').showModal() method */}
         </button>
         {/* modal content */}
-        <SurveyReport surveyId={_id} surveyTitle={title} />
+        <SurveyReport role={role} surveyId={_id} surveyTitle={title} />
         <div className="px-10 pb-10 pt-14 space-y-3">
           <p>
             <span className="font-semibold">Descripton:</span> {description}
@@ -156,12 +167,14 @@ const SurveyDetail = () => {
               {/* yes and no buttons */}
               <div className="space-x-4">
                 <button
+                  disabled={(role === "surveyor" || role=== "admin") && true }
                   onClick={handleVoteYes}
                   className="btn bg-green-600 text-white hover:bg-white hover:text-green-600"
                 >
                   YES
                 </button>
                 <button
+                   disabled={(role === "surveyor" || role=== "admin") && true }
                   onClick={handleVoteNo}
                   className="btn bg-green-600 text-white hover:bg-white hover:text-green-600"
                 >
@@ -194,7 +207,7 @@ const SurveyDetail = () => {
       </div>
 
       {/* comment section */}
-      <SurveyComments surveyId={_id} surveyTitle={title} />
+      <SurveyComments surveyId={_id} surveyTitle={title} role={role} />
     </div>
   );
 };

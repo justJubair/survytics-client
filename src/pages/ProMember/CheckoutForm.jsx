@@ -6,15 +6,17 @@ import { savePaymentDetails } from "../../api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import useRole from "../../hooks/useRole";
+import Loader from "../../shared/Loader/Loader";
 
 const CheckoutForm = () => {
   const stripe = useStripe();
-  const [, , refetch] = useRole()
   const { user } = useAuth();
-  const navigate = useNavigate()
+  const [role, isLoading, refetch] = useRole(user?.email);
+
+  const navigate = useNavigate();
   const elements = useElements();
   const [clientSecret, setClientSecret] = useState("");
-  const [paymentId, setPaymentId] = useState("")
+  const [paymentId, setPaymentId] = useState("");
   const [error, setError] = useState("");
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const CheckoutForm = () => {
       setError(confirmError.message);
       return;
     } else if (paymentIntent.status === "succeeded") {
-      setPaymentId(paymentIntent.id)
+      setPaymentId(paymentIntent.id);
       // save payment details in the database
       const payment = {
         name: user?.displayName,
@@ -76,12 +78,14 @@ const CheckoutForm = () => {
         toast.success(
           `Congrats ${user?.displayName} you have become pro member`
         );
-        refetch()
-        navigate("/")
+        refetch();
+        navigate("/");
       }
     }
   };
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="mt-24 max-w-2xl mx-auto px-4 md:mt-0">
       <form onSubmit={handleSubmit}>
@@ -105,13 +109,19 @@ const CheckoutForm = () => {
           <button
             className="btn w-full  bg-gradient-to-r from-cyan-600 to-[#24962a] hover:scale-95"
             type="submit"
-            disabled={!stripe || !clientSecret}
+            disabled={!stripe || !clientSecret || (role !== "user" && true)}
           >
             Pay
           </button>
         </div>
         <p className="text-red-600 font-semibold">{error}</p>
-        {paymentId ? <p className="text-green-600 font-semibold">Your transaction id: {paymentId}</p>: ' '}
+        {paymentId ? (
+          <p className="text-green-600 font-semibold">
+            Your transaction id: {paymentId}
+          </p>
+        ) : (
+          " "
+        )}
       </form>
     </div>
   );
