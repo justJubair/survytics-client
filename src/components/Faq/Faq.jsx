@@ -13,7 +13,7 @@ const Faq = () => {
         {/* main container */}
         <div className="flex flex-col items-center justify-center gap-8 mt-10 md:flex-row">
           {/* img */}
-          <div className="w-96">
+          <div className="w-full md:w-96">
             <Lottie animationData={FaqAnime} loop={true}/>
           </div>
           {/* Accordian */}

@@ -5,12 +5,13 @@ import SurveySearch from "../../components/SurveySearch/SurveySearch";
 import { useState } from "react";
 import SurveyCategory from "../../components/SurveyCategory/SurveyCategory";
 import { Helmet } from "react-helmet-async";
+import Loader from "../../shared/Loader/Loader";
 
 const Surveys = () => {
   const [searchText, setSearchText] = useState("");
   const [category, setCategory] = useState("")
   const [asc, setAsc] = useState(true);
-  const [surveys] = useSurveys(searchText, asc, category);
+  const [surveys, isLoading] = useSurveys(searchText, asc, category);
   const publishedSurveys = surveys.filter(survey=> survey.status === "published")
  
   const handleSearch = (e) => {
@@ -20,6 +21,9 @@ const Surveys = () => {
 
   const handleCategory =e=>{
     setCategory(e.target.value)
+  }
+  if(isLoading){
+    return <Loader/>
   }
   return (
     <div>

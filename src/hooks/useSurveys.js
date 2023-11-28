@@ -11,7 +11,7 @@ const useSurveys = (searchText, asc, category)=>{
             return res.data
         }
     })
-    return [surveys, refetch, isLoading]
+    return [surveys, isLoading, refetch ]
 }
 
 export default useSurveys
