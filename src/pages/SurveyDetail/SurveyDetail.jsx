@@ -110,10 +110,15 @@ const SurveyDetail = () => {
       setDisliked(true);
     }
   };
+
+  // Deadline calculation
+  const date1 = new Date(deadline)
+  const date2 = new Date()
+  const dateDiff = date1.getTime()-date2.getTime()
+ 
   if (loading || isLoading) {
     return <Loader />;
   }
-
   return (
     <div className="max-w-screen-xl mx-auto px-4">
        <Helmet>
@@ -158,7 +163,7 @@ const SurveyDetail = () => {
             <span className="font-semibold">Category:</span> {category}
           </p>
 
-          {isVoted ? (
+          {isVoted || dateDiff<0 ? (
             <SurveyChart voteYes={VoteYes} voteNo={VoteNo} width={300}/>
           ) : (
             <div>
