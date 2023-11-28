@@ -1,15 +1,26 @@
 /* eslint-disable react/prop-types */
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
+import { unpublishSurvey } from '../../../api'
+import toast from 'react-hot-toast'
 
-const DeleteModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurveyId})=> {
+const UnpublishModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurveyId, refetch})=> {
 
   function closeModal() {
     setUnpublishModalOpen(false)
   }
 
-  const handleUnpublish = e=>{
+  const handleUnpublish = async e=>{
     e.preventDefault()
+    const message = e.target.message.value
+    const adminMessage = {surveyId: unpublishSurveyId,admin: "admin", message, status:"unpublised"}
+ 
+    const dbResponse = await unpublishSurvey(unpublishSurveyId, adminMessage)
+    if(dbResponse?.adminMessageResult?.insertedId && dbResponse?.statusResult?.modifiedCount>0){
+      refetch()
+      setUnpublishModalOpen(false)
+      toast.success("Unpublished successful")
+    }
 
   }
  
@@ -48,7 +59,7 @@ const DeleteModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurveyI
                    Send a feedback and unpublish this survey
                   </Dialog.Title>
                  <form onSubmit={handleUnpublish} className='mt-3'>
-                  <input   className="input input-bordered w-full " type="text" />
+                  <input  name='message' className="input input-bordered w-full " type="text" />
                   <button className='btn btn-sm my-4 bg-gradient-to-r text-white from-cyan-600 to-[#24962a]'>Send and & Unpublish</button>
                  </form>
 
@@ -71,4 +82,4 @@ const DeleteModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurveyI
   )
 }
 
-export default DeleteModal
+export default UnpublishModal

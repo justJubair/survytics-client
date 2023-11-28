@@ -78,9 +78,9 @@ export const postSurvey = async (survey) => {
 };
 
 // DELETE; a survey as a admin
-export const unpublishSurvey =async(id)=>{
+export const unpublishSurvey =async(id, message)=>{
   try{
-    const res = await axiosSecure.delete(`/survey/${id}`)
+    const res = await axiosSecure.put(`/surveyUnpublish/${id}`, message)
     return res.data
   }
   catch(err){

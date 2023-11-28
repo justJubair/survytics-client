@@ -6,7 +6,7 @@ import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import SurveyTable from "./SurveyTable";
 
 const ManageSurveys = () => {
-  const [surveys] = useSurveys("", true, "");
+  const [surveys, refetch] = useSurveys("", true, "");
   const {user} = useAuth()
   const [role] = useRole(user?.email)
   return (
@@ -33,7 +33,7 @@ const ManageSurveys = () => {
               </thead>
               <tbody>
                 {surveys.map((survey, idx) => (
-                  <SurveyTable key={survey._id} idx={idx} survey={survey} role={role}/>
+                  <SurveyTable key={survey._id} idx={idx} survey={survey} role={role} refetch={refetch}/>
                 ))}
               </tbody>
             </table>
