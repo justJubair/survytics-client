@@ -21,6 +21,17 @@ export const saveUser = async (user) => {
   }
 };
 
+// Patch; update a users role via admin
+export const updateUserRole = async(id, role)=>{
+  try{
+    const res = await axiosSecure.patch(`/user/${id}`, role)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 // Patch; vote count;
 export const patchVoteCount = async (surveyId, operation) => {
   try {
