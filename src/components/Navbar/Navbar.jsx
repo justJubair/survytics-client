@@ -76,7 +76,7 @@ const Navbar = () => {
       </li>
       }
     
-      <li className=" hover:text-green-500">
+      <li className="pr-4 hover:text-green-500">
         <NavLink
           to="/aboutUs"
           className={({ isActive }) =>

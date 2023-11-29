@@ -18,6 +18,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../pages/Error/Error";
 import SurveyorRoute from "./SurveyorRoute";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 const Router = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const Router = createBrowserRouter([
         path: "/proMember",
         element: <PrivateRoute><ProMember /></PrivateRoute>
       },
+      {
+        path: "/aboutUs",
+        element: <AboutUs/>
+      }
     ],
   },
   {

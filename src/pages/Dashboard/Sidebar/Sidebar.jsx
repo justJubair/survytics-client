@@ -11,12 +11,16 @@ import AdminMenu from "./AdminMenu";
 
 const Sidebar = () => {
   const [isActive, setActive] = useState(false);
-  const { user, loading } = useAuth();
+  const { user, loading, logOut } = useAuth();
   const [role, isLoading] = useRole(user?.email);
   
   const handleToggle = () => {
     setActive(!isActive);
   };
+  const handleLogout = async()=>{
+    await logOut()
+  }
+
   if (loading || isLoading) {
     return <Loader />;
   }
@@ -53,7 +57,7 @@ const Sidebar = () => {
           <button className="flex w-full items-center px-4 py-2 mt-5 text-white    hover:text-gray-700 transition-colors duration-300 transform">
             <GrLogout className="w-5 h-5" />
 
-            <span className="mx-4 font-medium">Logout</span>
+            <span onClick={handleLogout} className="mx-4 font-medium">Logout</span>
           </button>
         </div>
       </div>
