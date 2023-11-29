@@ -17,6 +17,7 @@ import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import Error from "../pages/Error/Error";
+import SurveyorRoute from "./SurveyorRoute";
 
 const Router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const Router = createBrowserRouter([
     children: [
       {
         path: "/dashboard/addSurvey",
-        element: <AddSurvey />,
+        element: <SurveyorRoute><AddSurvey /></SurveyorRoute>
       },
       {
         path: "/dashboard/manageSurveys",
@@ -75,7 +76,7 @@ const Router = createBrowserRouter([
       },
       {
         path: "/dashboard/paymentHistory",
-        element: <PaymentHistory/>,
+        element: <AdminRoute><PaymentHistory/></AdminRoute>
       },
 
     ],

@@ -88,6 +88,17 @@ export const postSurvey = async (survey) => {
   }
 };
 
+// Publish; a survey as a admin
+export const publishSurvey= async(id)=>{
+  try{
+    const res = await axiosSecure.patch(`/surveyPublish/${id}`)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
 // Unpublish; a survey as a admin
 export const unpublishSurvey =async(id)=>{
   try{

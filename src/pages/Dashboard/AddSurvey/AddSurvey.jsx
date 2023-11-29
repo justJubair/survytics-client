@@ -21,7 +21,7 @@ const AddSurvey = () => {
     const VoteYes = 0;
     const VoteNo = 0;
     const totalVote=0;
-    const status = "published";
+    const status = "pending";
     // if deadline is passed todays date then disable the submit button
     const dateDiff = new Date(deadline).getTime() - new Date().getTime();
     if (dateDiff < 0) {
