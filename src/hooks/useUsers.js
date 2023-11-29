@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import axiosSecure from "../api/axiosSecure"
+import useAxios from "./useAxios"
+
 
 const useUsers = (userFilter)=>{
+    const axiosSecure = useAxios()
     const {data:users=[], isLoading, refetch} =useQuery({
         queryKey: [userFilter, "users"],
         queryFn: async()=>{
