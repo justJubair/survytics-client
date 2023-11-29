@@ -22,7 +22,7 @@ const SurveyComments = ({ surveyId, surveyTitle, role }) => {
       commentText,
     };
     const res = await postComment(comment);
-    if (res?.insertedId) {
+    if (res?._id) {
       toast.success("Your comment has been added");
       e.target.reset();
       refetch();

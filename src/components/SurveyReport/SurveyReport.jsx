@@ -17,7 +17,7 @@ const SurveyReport = ({surveyId, surveyTitle, role}) => {
             userPhoto: user?.photoURL,
         }
         const dbResponse = await postReport(report)
-        if(dbResponse.insertedId){
+        if(dbResponse._id){
             toast.success("Your report has been sent")
             e.target.reset()
         }
