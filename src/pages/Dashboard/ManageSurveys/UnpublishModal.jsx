@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment } from 'react'
-import { unpublishSurvey } from '../../../api'
+import { postReportAdmin, unpublishSurvey } from '../../../api'
 import toast from 'react-hot-toast'
 
 const UnpublishModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurveyId, refetch})=> {
+ 
 
   function closeModal() {
     setUnpublishModalOpen(false)
@@ -13,15 +14,17 @@ const UnpublishModal=({unpublishModalOpen, setUnpublishModalOpen , unpublishSurv
   const handleUnpublish = async e=>{
     e.preventDefault()
     const message = e.target.message.value
-    const adminMessage = {surveyId: unpublishSurveyId,admin: "admin", message, status:"unpublised"}
+    const adminMessage = {surveyId: unpublishSurveyId,admin: "admin", message, status:"unpublised",}
  
-    const dbResponse = await unpublishSurvey(unpublishSurveyId, adminMessage)
-    if(dbResponse?.adminMessageResult?.insertedId && dbResponse?.statusResult?.modifiedCount>0){
-      refetch()
+    const dbResponse = await unpublishSurvey(unpublishSurveyId)
+    const dbReportRes = await postReportAdmin(adminMessage)
+  
+    if(dbReportRes._id && dbResponse.modifiedCount>0){
       setUnpublishModalOpen(false)
       toast.success("Unpublished successful")
+      refetch()
     }
-
+    
   }
  
   return (

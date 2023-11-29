@@ -97,7 +97,7 @@ const SurveyDetail = () => {
   const handleLike = async () => {
     const res = await patchLikeAndDislike(_id, "like");
     refetch();
-    if (res.modifiedCount > 0) {
+    if (res?.modifiedCount > 0) {
       setButtonDisable(true);
       setLiked(true);
     }
@@ -105,7 +105,7 @@ const SurveyDetail = () => {
   const handleDislike = async () => {
     const res = await patchLikeAndDislike(_id, "dislike");
     refetch();
-    if (res.modifiedCount > 0) {
+    if (res?.modifiedCount > 0) {
       setButtonDisable(true);
       setDisliked(true);
     }

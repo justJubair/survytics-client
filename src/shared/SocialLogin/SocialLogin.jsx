@@ -18,7 +18,7 @@ const SocialLogin = () => {
           photo: res?.user.photoURL,
         };
         const dbResponse = await saveUser(currentUser);
-        if (dbResponse.insertedId) {
+        if (dbResponse._id) {
           toast.success(
             `${res?.user.displayName} your account has been created`
           );

@@ -20,6 +20,7 @@ const AddSurvey = () => {
     const dislike = 0;
     const VoteYes = 0;
     const VoteNo = 0;
+    const totalVote=0;
     const status = "published";
     // if deadline is passed todays date then disable the submit button
     const dateDiff = new Date(deadline).getTime() - new Date().getTime();
@@ -36,12 +37,13 @@ const AddSurvey = () => {
       dislike,
       VoteYes,
       VoteNo,
+      totalVote,
       status,
       deadline,
     };
   
     const dbResponse = await postSurvey(newSurvey)
-    if(dbResponse.insertedId){
+    if(dbResponse._id){
       toast.success("Your survey has been added")
       form.reset()
     }

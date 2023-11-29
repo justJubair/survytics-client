@@ -88,10 +88,21 @@ export const postSurvey = async (survey) => {
   }
 };
 
-// DELETE; a survey as a admin
-export const unpublishSurvey =async(id, message)=>{
+// Unpublish; a survey as a admin
+export const unpublishSurvey =async(id)=>{
   try{
-    const res = await axiosSecure.put(`/surveyUnpublish/${id}`, message)
+    const res = await axiosSecure.put(`/surveyUnpublish/${id}`)
+    return res.data
+  }
+  catch(err){
+    console.log(err)
+  }
+}
+
+// POST; a report message as a admin
+export const postReportAdmin = async(message)=>{
+  try{
+    const res = await axiosSecure.post("/reportAdmin", message)
     return res.data
   }
   catch(err){

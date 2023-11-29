@@ -2,13 +2,17 @@ import useAuth from "../../../hooks/useAuth";
 import useRole from "../../../hooks/useRole";
 import useSurveys from "../../../hooks/useSurveys";
 import Container from "../../../shared/Container/Container";
+import Loader from "../../../shared/Loader/Loader";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import SurveyTable from "./SurveyTable";
 
 const ManageSurveys = () => {
-  const [surveys, refetch] = useSurveys("", true, "");
+  const [surveys, isLoading, refetch] = useSurveys("", true, "");
   const {user} = useAuth()
   const [role] = useRole(user?.email)
+  if(isLoading){
+    return <Loader/>
+  }
   return (
     <div className="my-10">
       <Container>
