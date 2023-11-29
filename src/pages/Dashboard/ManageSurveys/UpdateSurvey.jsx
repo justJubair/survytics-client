@@ -2,12 +2,22 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import SectionTitle from "../../../shared/SectionTitle/SectionTitle";
 import Container from "../../../shared/Container/Container";
-import { useLoaderData } from "react-router-dom";
 import { updateSurvey } from "../../../api";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import axiosSecure from "../../../api/axiosSecure";
+import Loader from "../../../shared/Loader/Loader";
 
 
 const UpdateSurvey = () => {
-  const survey = useLoaderData()
+  const {id} = useParams()
+  const {data: survey=[],isLoading} = useQuery({
+    queryKey: [id, "survey"],
+    queryFn: async()=>{
+      const res = await axiosSecure.get(`/dashboard/updateSurvey/${id}`)
+      return res.data
+    }
+  })
   const [category, setCategory] = useState(survey?.category);
   const handleCategory = (e) => {
     setCategory(e.target.value);
@@ -38,12 +48,11 @@ const UpdateSurvey = () => {
       toast.success("Updated successfully")
       
     }
-    // const dbResponse = await postSurvey(newSurvey)
-    // if(dbResponse.insertedId){
-    //   toast.success("Your survey has been added")
-    //   form.reset()
-    // }
+  
   };
+  if(isLoading){
+    return <Loader/>
+  }
   return (
     <Container>
      <div className="my-10">

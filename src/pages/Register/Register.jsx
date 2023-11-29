@@ -118,7 +118,7 @@ const Register = () => {
               </form>
               <SocialLogin />
               <div className="flex items-center justify-between px-4 pb-2">
-                <p>Already have an account?</p>
+                <p className="font-medium">Already have an account?</p>
                 <Link to="/login" className="btn btn-link">
                   Login Now
                 </Link>

@@ -19,6 +19,7 @@ import AdminRoute from "./AdminRoute";
 import Error from "../pages/Error/Error";
 import SurveyorRoute from "./SurveyorRoute";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import AdminSurveyorRoute from "./AdminSurveyorRoute";
 
 const Router = createBrowserRouter([
   {
@@ -59,21 +60,19 @@ const Router = createBrowserRouter([
       },
       {
         path: "/dashboard/manageSurveys",
-        element: <ManageSurveys />,
+        element: <AdminSurveyorRoute><ManageSurveys /></AdminSurveyorRoute>
       },
       {
         path: "/dashboard/updateSurvey/:id",
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/survey/${params.id}`),
-        element: <UpdateSurvey />,
+        element: <SurveyorRoute><UpdateSurvey/></SurveyorRoute>
       },
       {
         path: "/dashboard/responseTable",
-        element: <TableResponse />,
+        element: <AdminSurveyorRoute><TableResponse /></AdminSurveyorRoute>
       },
       {
         path: "/dashboard/responseChart",
-        element: <ChartResponse/>,
+        element: <AdminSurveyorRoute><ChartResponse/></AdminSurveyorRoute>
       },
       {
         path: "/dashboard/manageUsers",

@@ -124,7 +124,7 @@ export const postReportAdmin = async(message)=>{
 // Put; update a survey as surveyor;
 export const updateSurvey = async(surveyId ,survey)=>{
   try{
-    const res = await axiosSecure.put(`/survey/${surveyId}`, survey)
+    const res = await axiosSecure.put(`/updateSurvey/${surveyId}`, survey)
     return res.data
   }
   catch(err){

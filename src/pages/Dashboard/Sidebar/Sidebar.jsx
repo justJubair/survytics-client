@@ -54,10 +54,10 @@ const Sidebar = () => {
 
         <div>
           <hr />
-          <button className="flex w-full items-center px-4 py-2 mt-5 text-white    hover:text-gray-700 transition-colors duration-300 transform">
+          <button onClick={handleLogout} className="flex w-full items-center px-4 py-2 mt-5 text-white    hover:text-gray-700 transition-colors duration-300 transform">
             <GrLogout className="w-5 h-5" />
 
-            <span onClick={handleLogout} className="mx-4 font-medium">Logout</span>
+            <span  className="mx-4 font-medium">Logout</span>
           </button>
         </div>
       </div>
