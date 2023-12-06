@@ -27,7 +27,7 @@ const Register = () => {
       if (res?.user?.email) {
         await updateUserProfile(name, photo);
         const dbResponse = await saveUser(user);
-        if (dbResponse.insertedId) {
+        if (dbResponse._id) {
           toast.success(`${name} your account has been created`);
           navigate("/")
         }

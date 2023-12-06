@@ -36,7 +36,6 @@ const SurveyDetail = () => {
 
   const [survey, refetch, isLoading] = useSurvey(id);
   const [isVoted, isVotedRefetch] = useVoted(survey?._id, user?.email);
-  console.log(isVoted)
  
   const {
     _id,
@@ -87,7 +86,7 @@ const SurveyDetail = () => {
         voted: "no",
       };
       const dbResponse = await saveUserVotingDetails(votingDetails);
-      if (dbResponse.insertedId) {
+      if (dbResponse._id) {
         toast.success("Your vote has been added");
         refetch();
         isVotedRefetch();
