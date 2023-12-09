@@ -15,3 +15,6 @@ I've mentions top five features of this website down below.
 - Admin has the access to allow surveys to be on the website and on every unpublish survey admin can send a feedback message to the surveyor
 
 - User can report a specific survey, they can like or dislike a survey. The reports of users are visible to the surveyor in his dashboard as feedback in the modal
+
+### Run this project locally
+`codejhfosajf`
