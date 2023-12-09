@@ -3,7 +3,7 @@
 I've mentions top five features of this website down below.
 
 
-- [Live site link](https://survytics-client.web.app) 
+[Live site link](https://survytics-client.web.app) 
 
 
 - Payment Intregation: I've used stripe for payment gateway. Any logged in user can become a pro member after successful payment. And only pro members have the permission to add comments.
