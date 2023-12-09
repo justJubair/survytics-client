@@ -17,6 +17,11 @@ I've mentions top five features of this website down below.
 - User can report a specific survey, they can like or dislike a survey. The reports of users are visible to the surveyor in his dashboard as feedback in the modal
 
 ### Run this project locally
+Clone this project on your local machine
+```
+git clone https://github.com/justJubair/survytics-client.git
+```
+Install the dependencies
 ```
 npm install
 ```
