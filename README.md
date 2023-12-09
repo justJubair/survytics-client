@@ -18,9 +18,7 @@ I've mentions top five features of this website down below.
 
 ### Run this project locally
 ```
-{
-npm install node
-}
+npm install
 ```
 
 
