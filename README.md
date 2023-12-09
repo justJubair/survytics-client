@@ -20,6 +20,10 @@ I've mentions top five features of this website down below.
 ```
 npm install
 ```
+Create a project on firebase and Chagne the .env file with your own credentials and then
+```
+npm run dev
+```
 
 
 
