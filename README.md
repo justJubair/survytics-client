@@ -20,7 +20,20 @@ I've mentions top five features of this website down below.
 ```
 npm install
 ```
-Create a project on firebase and Chagne the .env file with your own credentials and then
+Create a project on firebase and change .env.local file with your own credentials.
+```
+VITE_APIKEY=Your_Credentials
+VITE_AUTHDOMAIN=Your_Credentials
+VITE_PROJECTID=Your_Credentials
+VITE_STORAGEBUCKET=Your_Credentials
+VITE_MESSAGINGSENDERID=Your_Credentials
+VITE_APPID=Your_Credentials
+```
+To integrate stripe payment method, get your stripe key from your stirpe account and add this on .env.local file
+```
+VITE_STRIPE_KEY=Your_stripe_public_key
+```
+Finaly, run the project on development server.
 ```
 npm run dev
 ```
