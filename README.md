@@ -42,68 +42,42 @@
 
 ## Screenshots
 
-#### Home page
-![Home Page](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/HomePage.png)
+#### Home Page
+![Home Page](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/HomePage.png)
 
 ---
-#### AI Personal Trainer
-![Ai personal trainer](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Chatbot.png)
+#### How it works
+![How it works](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/HowItWorks.png)
 
 ---
-#### Services
-![Services](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Services.png)
+#### Survey Page
+![Services](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/SurveyPage.png)
 
 ---
-#### BMI Calculator
-![BMI calculator](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/BMICalc.png)
+#### Survey Details
+![Survey Details](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/SurveyDetails.png)
 
 ---
-#### User Dashboard
-![User dashboard](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/UserDashboard.png)
+#### Admin Dashboard
+![Admin dashboard](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/AdminDashboard01.png)
 
 ---
-#### User Analytics
-![User analytics](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/UserDashboard02.png)
+#### Manage Surveys
+![Manage Surveys](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/AdminDashboard02.png)
 
 ---
-#### Video Call Room
-![post a blogs](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/VideoCallRoom.png)
+#### Survey Results
+![Survey Results](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/AdminDashboard03.png)
 
 ---
-#### Video Call Demo
-![post a blogs](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/VideoCall.png)
+#### Payment Gateway
+![Payment Gateway](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/PaymentGateway.png)
 
 ---
-#### Challenges Page 
-![Challenges home page](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/ChallengesBanner.png)
+#### FAQ 
+![FAQ section](https://raw.githubusercontent.com/justJubair/survytics-client/main/src/assets/readmeAssets/FAQ.png)
 
----
-#### Workout Challenges
-![workout challenges](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Challenges.png)
 
----
-#### Workout Modules
-![workout modules](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Module.png)
-
----
-#### Post A Blog
-![post a blogs](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/BlogBanner.png)
-
----
-#### Blogs
-![blogs](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Blogs.png)
-
----
-#### Become A Trainer
-![be a trainer](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/BeATrainer.png)
-
----
-#### Trainers
-![trainers](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/TrainersPage.png)
-
----
-#### Pricing
-![be a trainer](https://raw.githubusercontent.com/justJubair/fit-track-client/main/src/assets/readMeAssets/Pricing.png)
 
 
 ## Getting Started
