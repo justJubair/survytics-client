@@ -96,13 +96,13 @@ Make sure you have the following dependencies installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/justJubair/fit-track-client.git
+   git clone https://github.com/justJubair/survytics-client.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd fit-track-client
+   cd survytics-client
    ```
 
 3. Install the dependencies:
@@ -112,25 +112,15 @@ Make sure you have the following dependencies installed:
    # or
    yarn install
    ```
-4. Update the .env.local file with your own credentials.
+4. Update the .env.local file with your own firebase auth credentials.
 
 ```env
-GOOGLE_CLIENT_ID = Your google client ID
-GOOGLE_CLIENT_SECRET = Google Secret
-SECRET = Generate a secret token
-
-FACEBOOK_CLIENT_ID = Your Facebook Client Id
-FACEBOOK_CLIENT_SECRET = Facebook Secret
-
-db_URI = MongoDB connection for NextAuth authentication
-DB_URI = Your Database URL
-
-NEXTAUTH_URL = http://localhost:3000
-
-STRIPE_PUBLISHER_KEY = Stripe Publisher Key
-STRIPE_SECRET_KEY = Stripe Secret Key
-
-IMGBB_API_KEY = Your Api Key
+VITE_APIKEY=Your_Credentials
+VITE_AUTHDOMAIN=Your_Credentials
+VITE_PROJECTID=Your_Credentials
+VITE_STORAGEBUCKET=Your_Credentials
+VITE_MESSAGINGSENDERID=Your_Credentials
+VITE_APPID=Your_Credentials
 ```
 
 ### Usage
@@ -143,7 +133,7 @@ IMGBB_API_KEY = Your Api Key
    yarn run dev
    ```
 
-2. Open the application in your browser: [http://localhost:3000](http://localhost:3000)
+2. Open the application in your browser: [http://localhost:5173](http://localhost:5173)
 
 ## Contributing
 
@@ -158,10 +148,9 @@ If you'd like to contribute to the project, please follow the steps below:
 
 ## Acknowledgements
 
-- [Next.js](https://nextjs.org)
-- [Materail UI](https://mui.com/material-ui/)
+- [React.js](https://react.dev)
 - [TailwindCSS](https://tailwindcss.com/)
-- [Next Auth](https://next-auth.js.org/)
-- [imgBB API](https://imgbb.com)
-- [Botpress](https://botpress.com/)
-- [ZegoCloud](https://www.zegocloud.com/)
+- [Firebase](https://firebase.google.com)
+- [Recharts](https://recharts.org)
+- [Swiper](https://swiperjs.com/get-started#initialize-swiper)
+- [Stripe](https://stripe.com)
