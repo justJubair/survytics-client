@@ -112,7 +112,7 @@ Make sure you have the following dependencies installed:
    # or
    yarn install
    ```
-4. Update the .env.local file with your own firebase auth credentials.
+4. Update the .env.local file with your own firebase and stripe credentials.
 
 ```env
 VITE_APIKEY=Your_Credentials
@@ -121,6 +121,8 @@ VITE_PROJECTID=Your_Credentials
 VITE_STORAGEBUCKET=Your_Credentials
 VITE_MESSAGINGSENDERID=Your_Credentials
 VITE_APPID=Your_Credentials
+
+VITE_STRIPE_KEY=Your_stripe_public_key
 ```
 
 ### Usage
